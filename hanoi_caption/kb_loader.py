@@ -8,7 +8,7 @@ from hanoi_caption.schemas import KBNode
 
 
 def load_kb(path: Path | str, only_objects: bool = True) -> dict[str, KBNode]:
-    raw = json.loads(Path(path).read_text())
+    raw = json.loads(Path(path).read_text(encoding="utf-8"))
     nodes = [KBNode.model_validate(item) for item in raw]
     if only_objects:
         nodes = [n for n in nodes if n.type == "object"]
