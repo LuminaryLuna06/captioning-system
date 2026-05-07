@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hanoi_caption"
+version = "0.1.0"
+description = "KB-grounded Hanoi landmark image captioning baseline"
+requires-python = ">=3.10"
+dependencies = [
+    # Torch is installed separately from the nightly cu128 index; not pinned here.
+    "transformers>=4.46",
+    "accelerate>=1.0",
+    "bitsandbytes>=0.45",
+    "sentencepiece",
+    "pillow",
+    "numpy",
+    "pydantic>=2",
+    "huggingface_hub",
+    "einops",
+    "FlagEmbedding",
+    "matplotlib",
+    "jupyterlab",
+    "ipykernel",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov"]
+# Vision deps are installed manually after the torch nightly is in place
+# (groundingdino-py, sam2, NVIDIA describe-anything from git).
+
+[tool.setuptools.packages.find]
+include = ["hanoi_caption*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"

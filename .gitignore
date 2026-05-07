@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual envs
+.venv/
+venv/
+
+# Notebook
+.ipynb_checkpoints/
+
+# Project artifacts
+data/cache/
+data/*.npz
+tests/fixtures/*
+!tests/fixtures/.gitkeep
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
