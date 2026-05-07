@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "hanoi_caption"
 version = "0.1.0"
 description = "KB-grounded Hanoi landmark image captioning baseline"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     # Torch is installed separately from the nightly cu128 index; not pinned here.
     "transformers>=4.46",
