@@ -27,14 +27,16 @@ This project was scaffolded in a Mac session and is being handed off to a sessio
 
 ## Setup (RTX 5060 Ti / Blackwell)
 
+This project uses the existing `luna_env` environment (already configured with PyTorch + CUDA 12.8 for Blackwell sm_120). Do NOT create a new venv.
+
 ```bash
-python3.11 -m venv .venv
-source .venv/bin/activate
-pip install --pre torch torchvision --index-url https://download.pytorch.org/whl/nightly/cu128
+conda activate luna_env   # or: mamba activate luna_env
 pip install -e ".[dev]"
 pip install groundingdino-py sam2
 pip install git+https://github.com/NVlabs/describe-anything.git
 ```
+
+If `torch.cuda.get_device_capability(0)` does not return `(12, 0)` after activating `luna_env`, the environment is not the right one — stop and fix before continuing.
 
 ## Run
 

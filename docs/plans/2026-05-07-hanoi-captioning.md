@@ -195,51 +195,43 @@ Expected: `main (root-commit) <hash>] chore: scaffold project structure...`
 
 ---
 
-### Task 0.2: Create Python venv and install non-vision dependencies
+### Task 0.2: Activate `luna_env` and install non-vision dependencies
 
 **Files:** none — this configures the local environment.
 
-- [ ] **Step 1: Create venv with Python 3.11**
+The user already maintains a working environment named **`luna_env`** that has PyTorch + CUDA 12.8 (Blackwell sm_120) installed correctly. Do NOT create a new `.venv` — reuse `luna_env`.
+
+- [ ] **Step 1: Activate `luna_env`**
 
 ```bash
-python3.11 -m venv .venv
-source .venv/bin/activate
+conda activate luna_env   # or: mamba activate luna_env
 python -V
+which python
 ```
 
-Expected: `Python 3.11.x`
+Expected: a Python ≥3.11 interpreter located inside the `luna_env` directory.
 
-- [ ] **Step 2: Install PyTorch nightly with CUDA 12.8 (Blackwell sm_120)**
-
-```bash
-pip install --pre torch torchvision --index-url https://download.pytorch.org/whl/nightly/cu128
-```
-
-- [ ] **Step 3: Verify CUDA + Blackwell support**
+- [ ] **Step 2: Verify CUDA + Blackwell support BEFORE installing anything else**
 
 ```bash
 python -c "import torch; print('torch', torch.__version__); print('cuda', torch.cuda.is_available()); print('device', torch.cuda.get_device_name(0)); print('compute', torch.cuda.get_device_capability(0))"
 ```
 
-Expected output includes `cuda True`, device `NVIDIA GeForce RTX 5060 Ti`, compute `(12, 0)`. **If compute capability is not (12, 0) or torch reports `False` for CUDA, stop and resolve before continuing.** The most common fix is reinstalling the nightly with the matching CUDA version.
+Expected output includes `cuda True`, device `NVIDIA GeForce RTX 5060 Ti`, compute `(12, 0)`. **If compute capability is not (12, 0) or torch reports `False` for CUDA, stop and ask the user — do not attempt to reinstall torch in `luna_env` without their permission**, as it is their working environment.
 
-- [ ] **Step 4: Install project + dev deps in editable mode**
+- [ ] **Step 3: Install project + dev deps in editable mode (into `luna_env`)**
 
 ```bash
 pip install -e ".[dev]"
 ```
 
-- [ ] **Step 5: Smoke-test pytest**
+- [ ] **Step 4: Smoke-test pytest**
 
 ```bash
 pytest --collect-only
 ```
 
 Expected: collects 0 tests, no errors.
-
-- [ ] **Step 6: Commit lockfile if your team uses one**
-
-(Skipped — no lockfile in this scaffold.)
 
 ---
 
