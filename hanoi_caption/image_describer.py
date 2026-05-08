@@ -18,14 +18,23 @@ PROMPT = (
 
 def _load():
     import torch
-    from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
+    from transformers import (
+        AutoProcessor,
+        BitsAndBytesConfig,
+        Qwen2_5_VLForConditionalGeneration,
+    )
 
     processor = AutoProcessor.from_pretrained(HF_ID)
+    quant = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_quant_type="nf4",
+        bnb_4bit_compute_dtype=torch.float16,
+    )
     model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
         HF_ID,
         torch_dtype=torch.float16,
         device_map="cuda",
-        load_in_4bit=True,
+        quantization_config=quant,
     )
     model.eval()
     return {"processor": processor, "model": model}

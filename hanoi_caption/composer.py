@@ -19,14 +19,19 @@ SYSTEM_PROMPT = (
 
 def _load():
     import torch
-    from transformers import AutoModelForCausalLM, AutoTokenizer
+    from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
     tokenizer = AutoTokenizer.from_pretrained(HF_ID)
+    quant = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_quant_type="nf4",
+        bnb_4bit_compute_dtype=torch.float16,
+    )
     model = AutoModelForCausalLM.from_pretrained(
         HF_ID,
         torch_dtype=torch.float16,
         device_map="cuda",
-        load_in_4bit=True,
+        quantization_config=quant,
     )
     model.eval()
     return {"tokenizer": tokenizer, "model": model}
