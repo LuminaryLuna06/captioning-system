@@ -32,9 +32,10 @@ def _load_gdino():
     from transformers import AutoModelForZeroShotObjectDetection, AutoProcessor
 
     processor = AutoProcessor.from_pretrained(GDINO_HF)
-    model = AutoModelForZeroShotObjectDetection.from_pretrained(
-        GDINO_HF, torch_dtype=torch.float16
-    ).to("cuda")
+    # GDINO is small (~340M params); fp16 triggers vision/text dtype mismatches
+    # in transformers ≥4.46. Load fp32 — adds ~700MB VRAM, still well inside
+    # the spec §10.1 stage-6 budget (~10 GB peak).
+    model = AutoModelForZeroShotObjectDetection.from_pretrained(GDINO_HF).to("cuda")
     model.eval()
     return {"processor": processor, "model": model}
 
@@ -106,16 +107,20 @@ def _detect(image: Image.Image, queries: list[str]) -> list[_Detection]:
     inputs = processor(images=image, text=text_prompt, return_tensors="pt").to("cuda")
     with torch.no_grad():
         outputs = model(**inputs)
+    # transformers ≥4.46 renamed `box_threshold` to `threshold` and now returns
+    # the detector's text labels under `text_labels` (`labels` becomes a tensor
+    # of class indices, not strings).
     results = processor.post_process_grounded_object_detection(
         outputs,
         inputs.input_ids,
-        box_threshold=BOX_THRESHOLD,
+        threshold=BOX_THRESHOLD,
         text_threshold=TEXT_THRESHOLD,
         target_sizes=[image.size[::-1]],
     )[0]
 
     out: list[_Detection] = []
-    for box, score, label in zip(results["boxes"], results["scores"], results["labels"]):
+    text_labels = results.get("text_labels", results.get("labels"))
+    for box, score, label in zip(results["boxes"], results["scores"], text_labels):
         x1, y1, x2, y2 = [float(v) for v in box.tolist()]
         out.append(_Detection(box=(x1, y1, x2, y2), score=float(score), query=str(label)))
     return out
