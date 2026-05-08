@@ -14,7 +14,7 @@ from hanoi_caption.model_registry import registry
 from hanoi_caption.schemas import KBNode, MatchCandidate, MatchResult
 
 DEFAULT_THRESHOLD = 0.45
-TOPK = 3
+TOPK = 5
 
 
 def _default_embed(text: str) -> np.ndarray:
@@ -59,7 +59,16 @@ def _vlm_rerank(
     text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     inputs = processor(text=[text], images=[image], return_tensors="pt").to("cuda")
     with torch.no_grad():
-        out = model.generate(**inputs, max_new_tokens=80, do_sample=False)
+        # Null out sampling params so Qwen's baked-in temperature=1e-06 doesn't
+        # trigger a UserWarning under do_sample=False (greedy ignores them anyway).
+        out = model.generate(
+            **inputs,
+            max_new_tokens=80,
+            do_sample=False,
+            temperature=None,
+            top_p=None,
+            top_k=None,
+        )
     raw = processor.batch_decode(
         out[:, inputs.input_ids.shape[1]:], skip_special_tokens=True
     )[0].strip()

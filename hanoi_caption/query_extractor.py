@@ -1,11 +1,16 @@
-"""Convert KB Visual Cues into short detector-friendly noun phrases."""
+"""Convert KB Visual Cues into short detector-friendly noun phrases.
+
+Uses the same Qwen2.5-VL-3B that runs `describe_image`, in text-only mode —
+the VLM is already resident from the describe stage, and this saves us from
+loading the 7B composer LLM at this stage of the pipeline.
+"""
 from __future__ import annotations
 
 import json
 import re
 
-from hanoi_caption.composer import MODEL_NAME as LLM_NAME
-from hanoi_caption.composer import _load as _llm_load  # noqa: F401  ensures registration
+from hanoi_caption.image_describer import MODEL_NAME as VLM_NAME
+from hanoi_caption.image_describer import _load as _vlm_load  # noqa: F401  ensures registration
 from hanoi_caption.model_registry import registry
 
 EXTRACT_PROMPT = (
@@ -46,16 +51,28 @@ def parse_queries(raw: str) -> list[str]:
 def extract_queries(visual_cues_text: str) -> list[str]:
     import torch
 
-    bundle = registry.get(LLM_NAME)
-    tok, model = bundle["tokenizer"], bundle["model"]
+    bundle = registry.get(VLM_NAME)
+    processor, model = bundle["processor"], bundle["model"]
     messages = [
-        {"role": "user", "content": EXTRACT_PROMPT.format(desc=visual_cues_text)}
+        {"role": "user", "content": [
+            {"type": "text", "text": EXTRACT_PROMPT.format(desc=visual_cues_text)},
+        ]}
     ]
-    text = tok.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-    inputs = tok(text, return_tensors="pt").to("cuda")
-    with torch.no_grad():
-        out = model.generate(**inputs, max_new_tokens=200, do_sample=False)
-    raw = tok.decode(
-        out[0, inputs.input_ids.shape[1]:], skip_special_tokens=True
+    text = processor.apply_chat_template(
+        messages, tokenize=False, add_generation_prompt=True
     )
+    # No images — Qwen2.5-VL handles text-only generation through its base LM path.
+    inputs = processor(text=[text], images=None, return_tensors="pt").to("cuda")
+    with torch.no_grad():
+        out = model.generate(
+            **inputs,
+            max_new_tokens=200,
+            do_sample=False,
+            temperature=None,
+            top_p=None,
+            top_k=None,
+        )
+    raw = processor.batch_decode(
+        out[:, inputs.input_ids.shape[1]:], skip_special_tokens=True
+    )[0]
     return parse_queries(raw)

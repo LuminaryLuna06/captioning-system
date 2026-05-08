@@ -5,8 +5,8 @@ from PIL import Image
 
 from hanoi_caption.model_registry import registry
 
-MODEL_NAME = "qwen25_vl_7b"
-HF_ID = "Qwen/Qwen2.5-VL-7B-Instruct"
+MODEL_NAME = "qwen25_vl_3b"
+HF_ID = "Qwen/Qwen2.5-VL-3B-Instruct"
 
 PROMPT = (
     "Describe what is visually present in this image. "
@@ -61,7 +61,16 @@ def describe_image(image: Image.Image) -> str:
     text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     inputs = processor(text=[text], images=[image], return_tensors="pt").to("cuda")
     with torch.no_grad():
-        out = model.generate(**inputs, max_new_tokens=200, do_sample=False)
+        # do_sample=False (greedy) ignores temperature/top_p. 
+        # Unsetting them explicitly clears the transformers UserWarning.
+        out = model.generate(
+            **inputs, 
+            max_new_tokens=200, 
+            do_sample=False,
+            temperature=None,
+            top_p=None,
+            top_k=None,
+        )
     decoded = processor.batch_decode(
         out[:, inputs.input_ids.shape[1]:], skip_special_tokens=True
     )[0]

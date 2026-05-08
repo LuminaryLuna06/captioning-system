@@ -33,6 +33,12 @@ class ModelRegistry:
         if name in self._loaded:
             self._loaded.move_to_end(name)
             return self._loaded[name]
+        
+        # Aggressive cleanup before loading a new model
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            
         if len(self._loaded) >= MAX_LOADED_MODELS:
             self._evict_oldest()
         model = self._loaders[name]()

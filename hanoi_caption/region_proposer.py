@@ -21,11 +21,11 @@ GDINO_HF = "IDEA-Research/grounding-dino-base"
 SAM2_NAME = "sam2"
 SAM2_HF = "facebook/sam2-hiera-base-plus"
 
-BOX_THRESHOLD = 0.35
-TEXT_THRESHOLD = 0.25
+BOX_THRESHOLD = 0.25
+TEXT_THRESHOLD = 0.20
 MIN_AREA_FRAC = 0.01
 IOU_THRESHOLD = 0.7
-MAX_KEEP = 6
+MAX_KEEP = 2
 
 
 def _load_gdino():
@@ -141,10 +141,10 @@ def _segment(image: Image.Image, boxes: list[tuple[float, float, float, float]])
 
 def _sam_automask_topk(image: Image.Image, k: int = 4) -> list[tuple[np.ndarray, tuple[float, float, float, float]]]:
     from sam2.automatic_mask_generator import SAM2AutomaticMaskGenerator
-    from sam2.build_sam import build_sam2
 
-    sam = build_sam2(SAM2_HF)
-    gen = SAM2AutomaticMaskGenerator(sam)
+    predictor = registry.get(SAM2_NAME)
+    # points_per_side=16 (default 32) cuts AMG compute ~4x for the fallback path.
+    gen = SAM2AutomaticMaskGenerator(predictor.model, points_per_side=16)
     masks = gen.generate(np.array(image))
     masks.sort(key=lambda m: m["area"], reverse=True)
     out = []
