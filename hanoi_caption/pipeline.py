@@ -50,6 +50,15 @@ def caption_phase1(
     if match.node_id is None:
         return CaptionResult(caption=None, refusal=REFUSAL_TEXT, debug=debug)
 
+    # The VLM finished its job after match; evict it so the composer's 4-bit
+    # load doesn't double-peak VRAM on a 16 GB GPU. Mirrors caption_phase2.
+    try:
+        from hanoi_caption.image_describer import MODEL_NAME as VLM_NAME
+        from hanoi_caption.model_registry import registry
+        registry.evict(VLM_NAME)
+    except Exception:
+        pass
+
     node = kb_nodes[match.node_id]
     caption = compose_fn(node, [], holistic)
     debug["caption_chars"] = len(caption)
