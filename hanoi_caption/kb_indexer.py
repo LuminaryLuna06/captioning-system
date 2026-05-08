@@ -16,9 +16,13 @@ EMBEDDING_MODEL_NAME = "bge_m3"
 
 
 def _load_bge_m3():
-    from FlagEmbedding import BGEM3FlagModel
+    # Switched from FlagEmbedding (which passes a `dtype=` kwarg
+    # incompatible with transformers 4.51.3's XLMRoberta init) to
+    # sentence-transformers, which loads BGE-M3 via a stable AutoModel
+    # path. Same weights, same 1024-dim dense embedding contract.
+    from sentence_transformers import SentenceTransformer
 
-    return BGEM3FlagModel("BAAI/bge-m3", use_fp16=True)
+    return SentenceTransformer("BAAI/bge-m3", device="cuda")
 
 
 registry.register(EMBEDDING_MODEL_NAME, _load_bge_m3)
@@ -32,9 +36,13 @@ def _normalize(x: np.ndarray) -> np.ndarray:
 
 def embed_text(texts: list[str]) -> np.ndarray:
     model = registry.get(EMBEDDING_MODEL_NAME)
-    out = model.encode(texts, batch_size=8, max_length=1024)["dense_vecs"]
-    arr = np.asarray(out, dtype=np.float32)
-    return _normalize(arr)
+    out = model.encode(
+        texts,
+        batch_size=8,
+        normalize_embeddings=True,
+        show_progress_bar=False,
+    )
+    return np.asarray(out, dtype=np.float32)
 
 
 @dataclass
