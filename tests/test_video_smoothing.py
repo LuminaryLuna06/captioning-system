@@ -76,3 +76,11 @@ def test_confidence_is_mean_over_segment_frames():
 def test_segment_carries_frame_indices_for_downstream_sampling():
     segs = smooth_and_group(_records("AAA"), smooth_window=1, min_segment_seconds=0.0, stride_s=1.0)
     assert segs[0]["frame_indices"] == [0, 1, 2]
+
+
+def test_two_short_adjacent_runs_both_dropped():
+    # AB with both shorter than min_segment_seconds and no other known neighbors
+    # -> A relabels to B (only neighbor), merges into one short B, still short
+    # with no known neighbors -> dropped to unknown -> filtered out.
+    segs = smooth_and_group(_records("AB"), smooth_window=1, min_segment_seconds=5.0, stride_s=1.0)
+    assert segs == []

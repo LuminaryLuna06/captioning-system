@@ -89,9 +89,10 @@ def _absorb_short_runs(runs: list[dict[str, Any]], min_seconds: float) -> list[d
 
     Rules:
     - Unknown (kb_id is None) runs are NEVER absorbed into a known neighbor; they are
-      simply dropped at the final filter step. This function only merges short *known*
-      runs into adjacent known runs of the same kb_id, OR drops them when surrounded
-      only by unknowns / video boundaries with no known neighbor.
+      simply dropped at the final filter step. This function relabels a short known
+      run to its longer neighbor's kb_id (after which `_merge_adjacent` collapses
+      them into one run), OR drops the short run by relabeling to None when no known
+      neighbor exists.
     - Among two known neighbors, absorb into the longer (in duration). Ties go to the
       preceding neighbor.
     """
