@@ -9,6 +9,8 @@ from collections import Counter
 from dataclasses import dataclass
 from typing import Any
 
+from hanoi_caption.schemas import KBNode
+
 
 @dataclass(frozen=True)
 class FrameRecord:
@@ -178,3 +180,41 @@ def pick_frame_indices(*, segment_seconds: float, available_indices: list[int],
     # Pick actual_k evenly-spaced positions, including endpoints.
     positions = [round(i * (n - 1) / (actual_k - 1)) for i in range(actual_k)]
     return [available_indices[p] for p in positions]
+
+
+DAM_VIDEO_CAPTION_BODY = (
+    "These frames are sampled from a short video clip showing {name}.\n\n"
+    "Historical and cultural context:\n{description}\n\n"
+    "Notable visual features that may be present: {visual_cues}\n\n"
+    "Write ONE warm, observant tour-guide paragraph (150 to 300 words, English) "
+    "describing what is visible across these frames and weaving in the historical "
+    "context above. Do not invent facts beyond what is provided. Write prose, "
+    "not a list. Do not mention the frames, the camera, the video, or that you "
+    "are using a knowledge base or AI."
+)
+
+
+def dam_caption_segment(*, model, frames: list, node: KBNode,
+                        full_image_mask_fn, image_token: str) -> str:
+    """Call DAM with N frames + N all-ones masks and the KB-grounded prompt.
+
+    `frames` is a list of opaque image objects (PIL.Image at runtime, anything in tests).
+    `full_image_mask_fn(frame)` returns the matching all-ones mask for that frame.
+    `image_token` is the model's placeholder (DEFAULT_IMAGE_TOKEN at runtime).
+    """
+    n = len(frames)
+    if n == 0:
+        raise ValueError("dam_caption_segment requires at least one frame")
+    masks = [full_image_mask_fn(f) for f in frames]
+    image_tokens = "\n".join([image_token] * n)
+    query = (
+        image_tokens
+        + "\n"
+        + DAM_VIDEO_CAPTION_BODY.format(
+            name=node.name_en,
+            description=node.description_en,
+            visual_cues=node.visual_cues_en,
+        )
+    )
+    text = model.get_description(image_pil=frames, mask_pil=masks, query=query)
+    return text.strip()
