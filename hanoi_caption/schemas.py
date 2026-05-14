@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field
 
 class KBNode(BaseModel):
     id: str
+    kb_id: str | None = None
     name_en: str
     name_vi: str
     type: Literal["object", "category"]

@@ -33,3 +33,13 @@ def load_kb(path: Path | str, only_objects: bool = True) -> dict[str, KBNode]:
     if only_objects:
         nodes = [n for n in nodes if n.type == "object"]
     return {n.id: n for n in nodes}
+
+
+def index_by_kb_id(nodes: dict[str, KBNode]) -> dict[str, KBNode]:
+    """Reindex KB nodes by their human-readable ``kb_id`` slug.
+
+    The crawler writes images under ``data/kb_images/<kb_id>/``, so retrievers
+    that recover a node id from a path need this slug-keyed lookup rather than
+    the opaque ``id``.
+    """
+    return {n.kb_id: n for n in nodes.values() if n.kb_id}
