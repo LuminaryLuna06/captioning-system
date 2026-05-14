@@ -4,6 +4,7 @@ See `docs/superpowers/specs/2026-05-14-video-caption-pipeline-design.md`.
 """
 from __future__ import annotations
 
+import math
 from collections import Counter
 from dataclasses import dataclass
 from typing import Any
@@ -153,3 +154,25 @@ def smooth_and_group(records: list[FrameRecord], *, smooth_window: int,
     runs = _runs(records, smoothed, stride_s)
     runs = _absorb_short_runs(runs, min_seconds=min_segment_seconds)
     return [r for r in runs if r["kb_id"] is not None]
+
+
+def pick_frame_indices(*, segment_seconds: float, available_indices: list[int],
+                       budget: tuple[int, int]) -> list[int]:
+    """Select evenly-spaced frame indices for a single DAM call.
+
+    target_K = clamp(ceil(segment_seconds), min=budget[0], max=budget[1])
+    actual_K = min(target_K, len(available_indices))   # no upsampling
+    """
+    lo, hi = budget
+    if lo > hi or lo < 1:
+        raise ValueError(f"invalid frame budget: {budget}")
+    if not available_indices:
+        return []
+    target_k = min(max(math.ceil(segment_seconds), lo), hi)
+    actual_k = min(target_k, len(available_indices))
+    if actual_k == len(available_indices):
+        return list(available_indices)
+    n = len(available_indices)
+    # Pick actual_k evenly-spaced positions, including endpoints.
+    positions = [round(i * (n - 1) / (actual_k - 1)) for i in range(actual_k)]
+    return [available_indices[p] for p in positions]
