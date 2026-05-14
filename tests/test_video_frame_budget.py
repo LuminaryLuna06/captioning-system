@@ -43,3 +43,15 @@ def test_invalid_budget_raises():
     import pytest
     with pytest.raises(ValueError):
         pick_frame_indices(segment_seconds=5.0, available_indices=[1, 2, 3], budget=(8, 4))
+
+
+def test_actual_k_one_with_multiple_available_returns_middle():
+    # budget allows K=1; many frames available -> pick the middle (no crash)
+    idx = pick_frame_indices(segment_seconds=0.5, available_indices=list(range(11)), budget=(1, 8))
+    assert idx == [5]  # 11 // 2 == 5
+
+
+def test_actual_k_one_with_single_available_returns_that_one():
+    # actual_k == n == 1 -> early return path, still works
+    idx = pick_frame_indices(segment_seconds=0.5, available_indices=[42], budget=(1, 8))
+    assert idx == [42]

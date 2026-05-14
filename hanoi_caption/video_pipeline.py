@@ -173,6 +173,8 @@ def pick_frame_indices(*, segment_seconds: float, available_indices: list[int],
     if actual_k == len(available_indices):
         return list(available_indices)
     n = len(available_indices)
+    if actual_k == 1:
+        return [available_indices[n // 2]]
     # Pick actual_k evenly-spaced positions, including endpoints.
     positions = [round(i * (n - 1) / (actual_k - 1)) for i in range(actual_k)]
     return [available_indices[p] for p in positions]
