@@ -4,12 +4,18 @@ See `docs/superpowers/specs/2026-05-14-video-caption-pipeline-design.md`.
 """
 from __future__ import annotations
 
+import logging
 import math
 from collections import Counter
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
+from PIL import Image
+
 from hanoi_caption.schemas import KBNode
+
+log = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True)
@@ -218,3 +224,44 @@ def dam_caption_segment(*, model, frames: list, node: KBNode,
     )
     text = model.get_description(image_pil=frames, mask_pil=masks, query=query)
     return text.strip()
+
+
+def sample_frames(video_path: Path | str, sample_fps: float) -> list[tuple[int, float, "Image.Image"]]:
+    """Read frames from `video_path` at `sample_fps`.
+
+    Returns a list of (frame_idx, timestamp_s, PIL.Image). frame_idx is the
+    decoded frame's original position in the source video (useful for debug);
+    timestamp_s is the wall-clock time of that frame.
+
+    Returns [] (and logs a warning) for unreadable or empty videos.
+    """
+    import cv2  # local import keeps the module importable without OpenCV at test-collect time
+
+    path = str(video_path)
+    if not Path(path).exists():
+        raise FileNotFoundError(path)
+    cap = cv2.VideoCapture(path)
+    try:
+        if not cap.isOpened():
+            log.warning("cv2 could not open video: %s", path)
+            return []
+        src_fps = cap.get(cv2.CAP_PROP_FPS)
+        if not src_fps or src_fps <= 0:
+            log.warning("video has no readable FPS: %s", path)
+            return []
+        stride = max(1, int(round(src_fps / sample_fps)))
+        out: list[tuple[int, float, Image.Image]] = []
+        frame_idx = 0
+        while True:
+            ok, frame_bgr = cap.read()
+            if not ok:
+                break
+            if frame_idx % stride == 0:
+                rgb = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2RGB)
+                img = Image.fromarray(rgb)
+                timestamp_s = frame_idx / src_fps
+                out.append((frame_idx, timestamp_s, img))
+            frame_idx += 1
+        return out
+    finally:
+        cap.release()
