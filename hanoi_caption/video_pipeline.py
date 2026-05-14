@@ -4,16 +4,23 @@ See `docs/superpowers/specs/2026-05-14-video-caption-pipeline-design.md`.
 """
 from __future__ import annotations
 
+import json
 import logging
 import math
+import os
+import time
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+import numpy as np
 from PIL import Image
 
-from hanoi_caption.schemas import KBNode
+from hanoi_caption.kb_loader import index_by_kb_id
+from hanoi_caption.model_registry import registry
+from hanoi_caption.region_describer import MODEL_NAME as DAM_NAME
+from hanoi_caption.schemas import KBNode, VideoSegment
 
 log = logging.getLogger(__name__)
 
@@ -265,3 +272,143 @@ def sample_frames(video_path: Path | str, sample_fps: float) -> list[tuple[int, 
         return out
     finally:
         cap.release()
+
+
+def _full_image_mask(image: "Image.Image") -> "Image.Image":
+    arr = np.full((image.size[1], image.size[0]), 255, dtype=np.uint8)
+    return Image.fromarray(arr, mode="L")
+
+
+def _default_retrieve_fn(dino_index_path: str, id_map_path: str):
+    """Build a callable that maps a PIL frame -> (kb_id, score). Loads index once."""
+    import faiss
+    import sys
+
+    # FeatureExtractor lives under scripts/data_collection — add to sys.path once.
+    scripts_dir = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        "scripts", "data_collection",
+    )
+    if scripts_dir not in sys.path:
+        sys.path.append(scripts_dir)
+    from feature_extractor import FeatureExtractor  # type: ignore
+
+    index = faiss.read_index(dino_index_path)
+    with open(id_map_path, "r") as f:
+        id_map = {int(k): v for k, v in json.load(f).items()}
+    extractor = FeatureExtractor()
+
+    def _retrieve(frame_pil):
+        feat = extractor.extract_features(frame_pil).astype("float32")
+        scores, indices = index.search(feat, k=1)
+        idx = int(indices[0][0])
+        if idx < 0:
+            return None, 0.0
+        path = id_map.get(idx)
+        if not path:
+            return None, float(scores[0][0])
+        kb_id = os.path.basename(os.path.dirname(path))
+        return kb_id, float(scores[0][0])
+
+    return _retrieve
+
+
+def _default_dam_caption_fn(model, frames, node):
+    from dam import DEFAULT_IMAGE_TOKEN  # type: ignore
+    return dam_caption_segment(
+        model=model, frames=frames, node=node,
+        full_image_mask_fn=_full_image_mask,
+        image_token=DEFAULT_IMAGE_TOKEN,
+    )
+
+
+def caption_video(
+    video_path: "Path | str",
+    kb_nodes: dict,
+    dino_index_path: "Path | str",
+    id_map_path: "Path | str",
+    sample_fps: float = 1.0,
+    smooth_window: int = 3,
+    min_segment_seconds: float = 2.0,
+    dam_frame_budget: "tuple[int, int]" = (4, 8),
+    retrieve_fn=None,
+    dam_caption_fn=None,
+) -> "list[VideoSegment]":
+    """See docs/superpowers/specs/2026-05-14-video-caption-pipeline-design.md."""
+    # Input validation (raise early, before any model is touched)
+    if sample_fps <= 0:
+        raise ValueError(f"sample_fps must be positive, got {sample_fps}")
+    if dam_frame_budget[0] > dam_frame_budget[1] or dam_frame_budget[0] < 1:
+        raise ValueError(f"invalid dam_frame_budget: {dam_frame_budget}")
+    if not Path(video_path).exists():
+        raise FileNotFoundError(video_path)
+    if not Path(dino_index_path).exists():
+        raise FileNotFoundError(dino_index_path)
+    if not Path(id_map_path).exists():
+        raise FileNotFoundError(id_map_path)
+
+    # 1. Sample frames
+    sampled = sample_frames(video_path, sample_fps=sample_fps)
+    if not sampled:
+        return []
+    stride_s = 1.0 / sample_fps
+
+    # 2. Per-frame retrieval
+    if retrieve_fn is None:
+        retrieve_fn = _default_retrieve_fn(str(dino_index_path), str(id_map_path))
+    nodes_by_kb_id = index_by_kb_id(kb_nodes)
+    records: list[FrameRecord] = []
+    for _, t, img in sampled:
+        kb_id, score = retrieve_fn(img)
+        if kb_id is not None and kb_id not in nodes_by_kb_id:
+            kb_id = None
+        records.append(FrameRecord(timestamp_s=t, kb_id=kb_id, score=score))
+
+    # 3+4. Smooth, group, drop short/unknown
+    segs = smooth_and_group(
+        records,
+        smooth_window=smooth_window,
+        min_segment_seconds=min_segment_seconds,
+        stride_s=stride_s,
+    )
+    if not segs:
+        return []
+
+    # 5. Per-segment DAM caption
+    if dam_caption_fn is None:
+        dam_model = registry.get(DAM_NAME)
+        dam_caption_fn = lambda frames, node: _default_dam_caption_fn(dam_model, frames, node)
+
+    out: list[VideoSegment] = []
+    for s in segs:
+        seg_seconds = s["end_s"] - s["start_s"]
+        picked = pick_frame_indices(
+            segment_seconds=seg_seconds,
+            available_indices=s["frame_indices"],
+            budget=dam_frame_budget,
+        )
+        picked_frames = [sampled[p][2] for p in picked]
+        node = nodes_by_kb_id[s["kb_id"]]
+        t0 = time.perf_counter()
+        try:
+            caption = dam_caption_fn(picked_frames, node)
+        except Exception:
+            log.warning("DAM caption failed for segment %.2f-%.2f (%s); dropping",
+                        s["start_s"], s["end_s"], s["kb_id"], exc_info=True)
+            continue
+        dam_seconds = time.perf_counter() - t0
+        out.append(VideoSegment(
+            start_s=s["start_s"],
+            end_s=s["end_s"],
+            kb_id=s["kb_id"],
+            node_id=node.id,
+            name_en=node.name_en,
+            confidence=s["confidence"],
+            caption=caption,
+            debug={
+                "frames_total": len(s["frame_indices"]),
+                "frames_sampled": len(picked_frames),
+                "timings": {"dam_caption": dam_seconds},
+            },
+        ))
+    return out
