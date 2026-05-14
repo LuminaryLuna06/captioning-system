@@ -47,3 +47,14 @@ class CaptionResult(BaseModel):
     caption: str | None
     refusal: str | None
     debug: dict[str, Any] = Field(default_factory=dict)
+
+
+class VideoSegment(BaseModel):
+    start_s: float
+    end_s: float
+    kb_id: str
+    node_id: str
+    name_en: str
+    confidence: float
+    caption: str
+    debug: dict[str, Any] = Field(default_factory=dict)
