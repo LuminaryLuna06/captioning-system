@@ -106,3 +106,44 @@ def test_segments_without_combined_caption_excluded(tmp_path):
     ds, lmap = _write_files(tmp_path, dataset=dataset)
     result = build_test_set(ds, lmap, total_videos=10, seed=42)
     assert len(result["in_kb"]) == 0
+
+
+def test_video_with_multiple_landmarks_appears_per_landmark(tmp_path):
+    """A video with 2 in-KB landmark segments should contribute one entry per segment."""
+    from scripts.eval.build_test_set import build_test_set
+    dataset = {
+        "videos": [{
+            "id": "multi_vid", "filename": "M.MOV", "duration": 60.0,
+            "fps": 30, "height": 1080, "width": 1920,
+            "segments": [
+                {
+                    "id": "seg_a", "name": "Pen Tower",
+                    "start_time": 0.0, "end_time": 30.0, "duration": 30.0,
+                    "regions": [{"captions": {"en": {"combined": "Caption A."}},
+                                 "knowledge_base_ids": ["id1"],
+                                 "knowledge_base_items": [{"description": "KB A"}]}],
+                    "segment_captions": []
+                },
+                {
+                    "id": "seg_b", "name": "Hoan Kiem Lake",
+                    "start_time": 30.0, "end_time": 60.0, "duration": 30.0,
+                    "regions": [{"captions": {"en": {"combined": "Caption B."}},
+                                 "knowledge_base_ids": ["id2"],
+                                 "knowledge_base_items": [{"description": "KB B"}]}],
+                    "segment_captions": []
+                },
+            ]
+        }]
+    }
+    lmap = {
+        "Pen Tower": {"kb_id": "pen_tower", "in_kb": True},
+        "Hoan Kiem Lake": {"kb_id": "hoan_kiem_lake", "in_kb": True},
+    }
+    ds_path = tmp_path / "ds.json"
+    map_path = tmp_path / "map.json"
+    ds_path.write_text(json.dumps(dataset), encoding="utf-8")
+    map_path.write_text(json.dumps(lmap), encoding="utf-8")
+    result = build_test_set(ds_path, map_path, total_videos=10, seed=42)
+    assert len(result["in_kb"]) == 2
+    kb_ids = {e["gt_segments"][0]["kb_id"] for e in result["in_kb"]}
+    assert kb_ids == {"pen_tower", "hoan_kiem_lake"}

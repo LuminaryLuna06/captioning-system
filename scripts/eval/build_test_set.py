@@ -142,8 +142,8 @@ def _stratified_sample(
         if len(selected) >= total:
             break
     # top-up if still under total
-    used_ids = {v["video_id"] for v in selected}
-    remaining = [v for vlist in by_kb_id.values() for v in vlist if v["video_id"] not in used_ids]
+    selected_set = {id(v) for v in selected}
+    remaining = [v for vlist in by_kb_id.values() for v in vlist if id(v) not in selected_set]
     if len(selected) < total and remaining:
         extra = rng.sample(remaining, min(total - len(selected), len(remaining)))
         selected.extend(extra)
