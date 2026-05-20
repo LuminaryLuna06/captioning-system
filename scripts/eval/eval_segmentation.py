@@ -123,7 +123,7 @@ def run_evaluation(test_set: dict, results: list[dict]) -> dict:
     results_by_id = {r["video_id"]: r for r in results}
     per_video = []
 
-    for video in test_set["in_kb"]:
+    for video in test_set.get("in_kb", []):
         vid_id = video["video_id"]
         r = results_by_id.get(vid_id, {})
         pred = r.get("predicted_segments", [])
@@ -136,13 +136,17 @@ def run_evaluation(test_set: dict, results: list[dict]) -> dict:
 
     # Aggregate across all videos per threshold
     agg: dict[str, dict] = {}
+    _METRIC_KEYS = ("precision", "recall", "f1", "lid_acc", "kb_node_precision")
     for thr in thresholds:
         key = str(thr)
         metrics = [v[key] for v in per_video]
-        agg[key] = {
-            metric: round(statistics.mean(v[metric] for v in metrics), 4)
-            for metric in ("precision", "recall", "f1", "lid_acc", "kb_node_precision")
-        }
+        if metrics:
+            agg[key] = {
+                metric: round(statistics.mean(v[metric] for v in metrics), 4)
+                for metric in _METRIC_KEYS
+            }
+        else:
+            agg[key] = {metric: 0.0 for metric in _METRIC_KEYS}
 
     # Refusal rate on out-of-KB videos
     out_of_kb = test_set.get("out_of_kb", [])
@@ -155,7 +159,7 @@ def run_evaluation(test_set: dict, results: list[dict]) -> dict:
     return {
         "thresholds": agg,
         "refusal_rate": refusal_rate,
-        "n_in_kb_videos": len(test_set["in_kb"]),
+        "n_in_kb_videos": len(test_set.get("in_kb", [])),
         "n_out_of_kb_videos": len(out_of_kb),
         "per_video": per_video,
     }

@@ -52,7 +52,7 @@ def test_match_segments_no_match_below_threshold():
 
 
 def test_match_segments_one_to_one():
-    # Both preds overlap GT[0]; only first (better TIoU) is matched
+    # Both preds overlap GT[0]; pred[0] has higher TIoU (1.0) than pred[1] (8/9)
     pred = [
         {"start_s": 0.0, "end_s": 9.0, "kb_id": "temple"},
         {"start_s": 0.0, "end_s": 8.0, "kb_id": "temple"},
@@ -60,6 +60,7 @@ def test_match_segments_one_to_one():
     gt = [{"start_time": 0.0, "end_time": 9.0, "kb_id": "temple"}]
     matches = match_segments(pred, gt, threshold=0.5)
     assert len(matches) == 1
+    assert matches[0][1] == 0  # pred[0] wins (higher TIoU)
 
 
 # --- seg_metrics ---
@@ -124,3 +125,34 @@ def test_kb_node_precision_half_correct():
 
 def test_kb_node_precision_no_matches():
     assert kb_node_precision([], [], []) == pytest.approx(0.0)
+
+
+# --- run_evaluation ---
+
+def test_run_evaluation_empty_in_kb():
+    """Empty in_kb must not crash (statistics.mean on empty sequence)."""
+    from scripts.eval.eval_segmentation import run_evaluation
+    test_set = {"in_kb": [], "out_of_kb": []}
+    result = run_evaluation(test_set, [])
+    assert result["n_in_kb_videos"] == 0
+    assert result["thresholds"]["0.5"]["f1"] == 0.0
+
+
+def test_run_evaluation_basic():
+    from scripts.eval.eval_segmentation import run_evaluation
+    test_set = {
+        "in_kb": [{
+            "video_id": "v1",
+            "filename": "A.MOV",
+            "gt_segments": [{"start_time": 0.0, "end_time": 10.0, "kb_id": "temple", "gt_node_id": "n1"}],
+        }],
+        "out_of_kb": [{"video_id": "v2", "filename": "B.MOV", "duration": 5.0}],
+    }
+    results = [{
+        "video_id": "v1",
+        "predicted_segments": [{"start_s": 0.0, "end_s": 10.0, "kb_id": "temple", "node_id": "n1"}],
+    }]
+    out = run_evaluation(test_set, results)
+    assert out["thresholds"]["0.5"]["recall"] == pytest.approx(1.0)
+    assert out["thresholds"]["0.5"]["lid_acc"] == pytest.approx(1.0)
+    assert out["refusal_rate"] == pytest.approx(1.0)  # v2 not in results → counted as refusal
