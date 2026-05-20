@@ -26,7 +26,10 @@ import argparse
 import json
 import re
 import statistics
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 _STOPWORDS = {
     "the", "a", "an", "is", "are", "was", "were", "it", "its", "this", "that",

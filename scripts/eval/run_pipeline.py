@@ -118,7 +118,7 @@ def main():
     n_miss = sum(1 for r in results if r["error"] == "file_not_found")
     n_err = sum(1 for r in results if r["error"] not in (None, "file_not_found"))
     print(f"\nDone: {n_ok} ok, {n_miss} file-not-found, {n_err} other errors")
-    print(f"Saved → {out_path}")
+    print(f"Saved -> {out_path}")
 
 
 if __name__ == "__main__":
