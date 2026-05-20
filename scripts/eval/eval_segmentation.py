@@ -9,7 +9,7 @@ Usage:
 Output JSON schema:
     {
       "thresholds": {
-        "0.3": {"precision": float, "recall": float, "f1": float, "lid_acc": float},
+        "0.3": {"precision": float, "recall": float, "f1": float, "lid_acc": float, "kb_node_precision": float},
         "0.5": {...},
         "0.7": {...}
       },

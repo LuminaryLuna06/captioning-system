@@ -1,6 +1,6 @@
 # tests/eval/test_eval_segmentation.py
 import pytest
-from scripts.eval.eval_segmentation import tiou, match_segments, seg_metrics, lid_accuracy
+from scripts.eval.eval_segmentation import tiou, match_segments, seg_metrics, lid_accuracy, kb_node_precision
 
 
 # --- tiou ---
@@ -104,3 +104,23 @@ def test_lid_accuracy_half_correct():
 
 def test_lid_accuracy_no_matches():
     assert lid_accuracy([], [], []) == pytest.approx(0.0)
+
+
+# --- kb_node_precision ---
+
+def test_kb_node_precision_all_correct():
+    matches = [(0, 0, 0.9), (1, 1, 0.8)]
+    pred = [{"node_id": "node_001"}, {"node_id": "node_002"}]
+    gt   = [{"gt_node_id": "node_001"}, {"gt_node_id": "node_002"}]
+    assert kb_node_precision(matches, pred, gt) == pytest.approx(1.0)
+
+
+def test_kb_node_precision_half_correct():
+    matches = [(0, 0, 0.9), (1, 1, 0.8)]
+    pred = [{"node_id": "node_001"}, {"node_id": "WRONG"}]
+    gt   = [{"gt_node_id": "node_001"}, {"gt_node_id": "node_002"}]
+    assert kb_node_precision(matches, pred, gt) == pytest.approx(0.5)
+
+
+def test_kb_node_precision_no_matches():
+    assert kb_node_precision([], [], []) == pytest.approx(0.0)
