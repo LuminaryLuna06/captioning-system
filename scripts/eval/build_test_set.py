@@ -68,14 +68,23 @@ def _gt_node_id(regions: list[dict]) -> str:
     return ""
 
 
+def _available_stems(video_dir: "Path | None") -> "set[str] | None":
+    """Return lowercased filename stems present in video_dir, or None to skip filtering."""
+    if video_dir is None:
+        return None
+    return {f.stem.lower() for f in Path(video_dir).iterdir() if f.is_file()}
+
+
 def build_test_set(
     dataset_path: "Path | str",
     landmark_map_path: "Path | str",
     total_videos: int = 30,
     seed: int = 42,
+    video_dir: "Path | str | None" = None,
 ) -> dict:
     data = json.loads(Path(dataset_path).read_text(encoding="utf-8"))
     lmap: dict[str, dict] = json.loads(Path(landmark_map_path).read_text(encoding="utf-8"))
+    available = _available_stems(video_dir)
 
     in_kb_by_kb_id: dict[str, list[dict]] = defaultdict(list)
     out_of_kb: list[dict] = []
@@ -84,6 +93,11 @@ def build_test_set(
         video_id = video["id"]
         filename = video.get("filename", "")
         duration = video.get("duration", 0.0)
+
+        # Skip if video file is not available in the specified directory
+        if available is not None and Path(filename).stem.lower() not in available:
+            continue
+
         good_segs = []
         has_out_of_kb = False
 
@@ -157,9 +171,11 @@ def main():
     parser.add_argument("--output", default="data/eval/test_set.json")
     parser.add_argument("--total", type=int, default=30)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--video-dir", default=None,
+                        help="If set, only include videos whose files exist in this directory")
     args = parser.parse_args()
 
-    result = build_test_set(args.dataset, args.landmark_map, args.total, args.seed)
+    result = build_test_set(args.dataset, args.landmark_map, args.total, args.seed, args.video_dir)
     Path(args.output).write_text(
         json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8"
     )
