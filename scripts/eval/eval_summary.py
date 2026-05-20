@@ -40,8 +40,9 @@ def format_latex_row(label: str, stats: dict) -> str:
 
 def _llm_scores_flat(llm_scores: list[dict]) -> list[dict]:
     return [
-        {**item["scores"], "reasoning": item.get("reasoning", "")}
+        {**item.get("scores", {}), "reasoning": item.get("reasoning", "")}
         for item in llm_scores
+        if "scores" in item
     ]
 
 
