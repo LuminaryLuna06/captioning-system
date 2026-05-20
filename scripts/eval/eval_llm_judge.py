@@ -72,9 +72,11 @@ def parse_response(content: str) -> dict:
         data = json.loads(content)
     except json.JSONDecodeError as exc:
         raise ValueError(f"invalid JSON from judge: {exc}\nContent: {content[:200]}") from exc
+    missing = [k for k in _SCORE_KEYS if k not in data]
+    if missing:
+        raise ValueError(f"invalid JSON from judge: missing keys {missing}\nContent: {content[:200]}")
     for k in _SCORE_KEYS:
-        if k in data:
-            data[k] = max(1, min(5, int(data[k])))
+        data[k] = max(1, min(5, int(data[k])))
     return data
 
 
@@ -153,7 +155,10 @@ def main():
                   f"FA={scores['factual_accuracy']} VG={scores['visual_grounding']} "
                   f"T={scores['tone']} H={scores['hallucination']}")
         except Exception as exc:
+            import traceback
             print(f"  [{i}/{len(items)}] ERROR for {item['video_id']}: {exc}")
+            if not isinstance(exc, ValueError):
+                traceback.print_exc()
         time.sleep(0.5)  # respect rate limits
 
     Path(args.output).write_text(
