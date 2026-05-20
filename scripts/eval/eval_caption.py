@@ -40,7 +40,7 @@ _STOPWORDS = {
 
 def _keywords(text: str) -> set[str]:
     words = re.findall(r"[a-z]+", text.lower())
-    return {w for w in words if len(w) > 3 and w not in _STOPWORDS}
+    return {w for w in words if len(w) >= 4 and w not in _STOPWORDS}
 
 
 def kb_coverage(kb_text: str, caption: str) -> float:
@@ -79,6 +79,8 @@ def caption_metrics_one(predicted: str, reference: str) -> dict:
 
 def bertscore_batch(predictions: list[str], references: list[str]) -> list[float]:
     """Batch BERTScore-F1 using roberta-large. Returns one score per pair."""
+    if not predictions:
+        return []
     from bert_score import score
     _, _, F1 = score(
         predictions, references,
@@ -112,8 +114,8 @@ def _collect_eval_pairs(test_set: dict, results: list[dict]) -> list[dict]:
                 "landmark_name": gt["landmark_name"],
                 "kb_id": gt["kb_id"],
                 "predicted_caption": pred.get("caption", ""),
-                "reference_caption": gt["reference_caption"],
-                "kb_description": gt["kb_description"],
+                "reference_caption": gt.get("reference_caption", ""),
+                "kb_description": gt.get("kb_description", ""),
             })
     return pairs
 
