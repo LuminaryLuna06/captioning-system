@@ -1,0 +1,5 @@
+nltk>=3.8
+rouge-score>=0.1.2
+bert-score>=0.3.13
+openai>=1.30
+torch>=2.0  # required by bert-score
