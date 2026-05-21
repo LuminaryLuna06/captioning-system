@@ -33,6 +33,25 @@ Public entrypoint: `caption_video(video_path, kb_nodes, dino_index_path, id_map_
 
 - `notebooks/02_phase2_full_pipeline.ipynb` — interactive demo: setup → `caption_video` on a clip → timeline + caption render.
 
+## Data collection — `scripts/data_collection/`
+
+Pipeline for building the DINOv3 reference index that `caption_video` retrieves against:
+
+- `config.py` — central config (model IDs, paths). Default retriever = `facebook/dinov3-vits16-pretrain-lvd1689m`; heavy reranker = `dinov3-vitb16`. Paths resolve to `data/kb_images/`, `data/cache/dino_faiss.index`, `data/cache/id_map.json`.
+- `crawler.py` — `WikimediaCrawler`: fetches landmark images from Wikimedia Commons (Wikimedia-policy User-Agent).
+- `crawl_selected.py` — CLI on top of `WikimediaCrawler`. Curated per-`kb_id` queries (e.g. `"Bat Trang pottery"` instead of bare `"Pottery"`). Run: `python scripts/data_collection/crawl_selected.py [--limit 12] [--group all|2|3|8|9|11]` → writes `data/kb_images/<kb_id>/*.jpg`.
+- `feature_extractor.py` — `FeatureExtractor`: wraps DINOv3 (`AutoImageProcessor` + `AutoModel`), returns L2-normalized CLS embeddings. Also imported by `video_pipeline._default_retrieve_fn` at runtime.
+- `indexer.py` — `ImageIndexer`: walks `data/kb_images/`, extracts features, builds FAISS index, writes `dino_faiss.index` + `id_map.json` (FAISS row → image path). Run: `python scripts/data_collection/indexer.py data/kb_images`.
+
+**Order of operations** (only when adding/changing landmarks):
+
+```bash
+python scripts/data_collection/crawl_selected.py --limit 12   # 1. download images
+python scripts/data_collection/indexer.py data/kb_images      # 2. build FAISS index
+```
+
+After this, `caption_video` can use the updated `data/cache/dino_faiss.index` + `id_map.json` without code changes.
+
 ## Evaluation — `scripts/eval/`
 
 Run in order:
