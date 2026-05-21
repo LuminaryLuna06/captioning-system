@@ -47,6 +47,35 @@ Run in order:
 
 Per-experiment snapshots go under `data/eval/runs/<date>_<label>/`.
 
+## Tests — `tests/`
+
+Organized by **test type**, not by source module, so adding model variants (Qwen-VL, CLIP, alternative DAM, …) only touches `tests/models/`:
+
+```
+tests/
+  unit/                    fast, no GPU; pure logic
+    test_kb_loader.py
+    test_schemas.py
+    video_pipeline/        per-function unit tests
+      test_smoothing.py
+      test_frame_budget.py
+      test_dam_caption_prompt.py
+  integration/             multi-module, mocked models
+    test_caption_video_smoke.py
+  models/                  per-model tests (real load, @slow) — empty for now
+  eval/                    eval script tests
+  fixtures/, videos/       gitignored
+```
+
+Selective runs:
+
+```bash
+pytest tests/unit                # every commit, < 3s
+pytest tests/integration         # every commit
+pytest tests/models -m slow      # when changing a model wrapper (needs GPU)
+pytest tests/ -m "not slow"      # CI default
+```
+
 ## Layout
 
 ```
@@ -58,5 +87,5 @@ data/kb.json          KB export
 data/kb_images/       reference images per landmark (gitignored)
 data/cache/           embeddings + HF model cache (gitignored)
 data/eval/            eval inputs, predictions, metrics, summaries
-tests/                pytest suite + tests/videos/ fixtures (gitignored)
+tests/                pytest suite (see above)
 ```
