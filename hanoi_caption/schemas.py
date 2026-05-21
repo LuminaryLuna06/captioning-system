@@ -11,7 +11,7 @@ class KBNode(BaseModel):
     kb_id: str | None = None
     name_en: str
     name_vi: str
-    type: Literal["object", "category"]
+    type: Literal["object", "category", "action"]
     parent_id: str | None = None
     description_en: str
     description_vi: str

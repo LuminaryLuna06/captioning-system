@@ -2,32 +2,31 @@
 
 Baseline KB-grounded image captioning for Hanoi landmarks. Combines a manually-built bilingual knowledge base with the Describe Anything Model (DAM) to produce 150–300 word tour-guide-style English captions grounded in both vetted facts and per-photo visual specifics.
 
-- **Design spec:** [`docs/specs/2026-05-07-hanoi-captioning-design.md`](docs/specs/2026-05-07-hanoi-captioning-design.md)
-- **Implementation plan:** [`docs/plans/2026-05-07-hanoi-captioning.md`](docs/plans/2026-05-07-hanoi-captioning.md)
+## Architecture: Retriever Pipeline
 
-## Resuming work in a new Claude Code session
+The current pipeline uses a **retriever pipeline** architecture to match images to knowledge base (KB) entries and generate captions:
 
-This project was scaffolded in a Mac session and is being handed off to a session on the GPU machine. To pick up where it left off:
+1. **Initial Image Description:** The Describe Anything Model (DAM) is used to scan the input image and generate an initial, detailed visual description (replacing the Qwen model in this step).
+2. **KB Matching & Reranking:** The visual description is used to retrieve candidate landmarks from the Knowledge Base. The Qwen model is then used to rerank the **top-5 candidates** to definitively identify the landmark or reject if there's no match.
+3. **Caption Composition:** Based on the identified KB node and visual specifics, the final tour-guide-style caption is generated.
 
-1. **Read in this order, no exceptions:**
-   1. This README (top-to-bottom).
-   2. `docs/specs/2026-05-07-hanoi-captioning-design.md` — the full design.
-   3. `docs/plans/2026-05-07-hanoi-captioning.md` — the task-by-task plan with code blocks.
+## Proposed Future Architecture: Visual RAG (DINOv3 + DAM)
 
-2. **Check what's already done:** run `git log --oneline` to see committed tasks. As of the handoff, **Task 0.1 (project scaffold) is committed**; Tasks 0.2 onward are pending.
+To address current latency bottlenecks and VRAM constraints (model swapping between Qwen, DAM, and BGE), the system is proposed to migrate to a **Visual RAG** architecture using Meta's DINOv3 as the vision encoder.
 
-3. **Resume execution at Task 0.2** in `docs/plans/...`. The plan was being executed via the `superpowers:subagent-driven-development` skill — invoke it again to continue, or execute tasks inline.
+**Proposed Pipeline:**
+1. **Image-to-Image Retrieval (DINOv3):** Instead of generating text to search the KB, the input image is passed through DINOv3 to extract a feature vector (~10-30ms).
+2. **Vector Search:** This vector is compared via Cosine Similarity against a pre-computed vector database of "reference images" for each landmark in the KB. This definitively identifies the landmark with high accuracy and near-zero latency.
+3. **Generation (DAM-3B):** The identified landmark's historical context is injected into DAM-3B's prompt, which then generates the final tour-guide caption based on the image and provided facts.
 
-4. **Sample KB:** an existing 15-node Gemini-generated sample KB lives at `~/hanoi_kb_sample.json` on the original Mac. It is **not** in this repo. Either:
-   - Copy it to `data/kb.json` (Task 0.3 in the plan), or
-   - Regenerate it on the GPU PC by running the same Gemini CLI prompt from the brainstorming session, or
-   - Wait for the user's real KB export (the user said this would come later).
-
-5. **Hardware/environment note:** the plan targets RTX 5060 Ti 16 GB (Blackwell sm_120). Task 0.2 installs PyTorch nightly with CUDA 12.8. If `torch.cuda.get_device_capability(0)` does not return `(12, 0)` after Task 0.2 Step 3, **stop and resolve before continuing** — most other tasks depend on this.
+**Key Benefits:**
+- **Real-time Latency:** Bypasses the slow autoregressive text generation of Qwen during the retrieval phase.
+- **VRAM Efficiency:** DINO (small ViT) and DAM-3B can reside in memory concurrently on a 16GB GPU without swapping.
+- **Robustness:** Eliminates the dependency on human-authored, exact-match text `visual_cues`. Replaces textual cues with 3-5 reference images per landmark.
 
 ## Setup (RTX 5060 Ti / Blackwell)
 
-This project uses the existing `luna_env` environment (already configured with PyTorch + CUDA 12.8 for Blackwell sm_120). Do NOT create a new venv.
+This project uses the existing `luna_env` environment (configured with PyTorch + CUDA 12.8 for Blackwell sm_120). 
 
 ```bash
 conda activate luna_env   # or: mamba activate luna_env
@@ -36,15 +35,16 @@ pip install groundingdino-py sam2
 pip install git+https://github.com/NVlabs/describe-anything.git
 ```
 
-If `torch.cuda.get_device_capability(0)` does not return `(12, 0)` after activating `luna_env`, the environment is not the right one — stop and fix before continuing.
-
 ## Run
 
 ```bash
 jupyter lab notebooks/01_phase1_kb_only.ipynb
+jupyter lab notebooks/02_phase2_full_pipeline.ipynb
 ```
 
-## Project layout (target — most files are added by the plan)
+The `02_phase2_full_pipeline.ipynb` notebook includes batch processing capabilities to run the retriever pipeline sequentially on all test photos, complete with a matplotlib timing comparison table.
+
+## Project layout
 
 ```
 .
@@ -55,10 +55,8 @@ jupyter lab notebooks/01_phase1_kb_only.ipynb
 ├── notebooks/
 │   ├── 01_phase1_kb_only.ipynb     # Phase 1 smoke test (no DAM)
 │   └── 02_phase2_full_pipeline.ipynb  # Phase 2 full pipeline + comparison
-├── hanoi_caption/               # importable package (stages 3-8)
-├── docs/
-│   ├── specs/2026-05-07-hanoi-captioning-design.md
-│   └── plans/2026-05-07-hanoi-captioning.md
+├── hanoi_caption/               # importable package
+├── docs/                        # design specs and plans
 └── tests/
-    └── fixtures/                # 5-10 user-supplied test images
+    └── fixtures/                # user-supplied test images
 ```

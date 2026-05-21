@@ -1,0 +1,586 @@
+{
+  "Ba Dinh Square": {
+    "kb_id": "ba_dinh_square",
+    "in_kb": true
+  },
+  "Banh mi": {
+    "kb_id": "banh_mi",
+    "in_kb": true
+  },
+  "Bat Trang Communal house": {
+    "kb_id": "bat_trang_communal_house",
+    "in_kb": true
+  },
+  "Bat Trang Gate": {
+    "kb_id": "bat_trang_gate",
+    "in_kb": true
+  },
+  "Bat Trang Market": {
+    "kb_id": "bat_trang_market",
+    "in_kb": true
+  },
+  "Bat Trang Mother Temple": {
+    "kb_id": "bat_trang_mother_temple",
+    "in_kb": true
+  },
+  "Bat Trang Mother Temple sign": {
+    "kb_id": "bat_trang_mother_temple",
+    "in_kb": true
+  },
+  "Bat Trang Pagoda": {
+    "kb_id": "bat_trang_pagoda",
+    "in_kb": true
+  },
+  "Bat Trang Pottery Museum": {
+    "kb_id": "bat_trang_pottery_museum",
+    "in_kb": true
+  },
+  "Bat Trang Pottery shop": {
+    "kb_id": "bat_trang_pottery_shop",
+    "in_kb": true
+  },
+  "Bat Trang gate": {
+    "kb_id": "bat_trang_gate",
+    "in_kb": true
+  },
+  "Bay Mau Lake": {
+    "kb_id": "bay_mau_lake",
+    "in_kb": true
+  },
+  "Bay Mau Lake Shore": {
+    "kb_id": "bay_mau_lake_shore",
+    "in_kb": true
+  },
+  "Bell house": {
+    "kb_id": "bell_house",
+    "in_kb": true
+  },
+  "Bia Tien Si": {
+    "kb_id": "trang_tien_shop",
+    "in_kb": true
+  },
+  "Bronze ware": {
+    "kb_id": "bronze_ware",
+    "in_kb": true
+  },
+  "Building D67": {
+    "kb_id": "building_d67",
+    "in_kb": true
+  },
+  "Bun dau mam tom": {
+    "kb_id": "bun_dau_mam_tom",
+    "in_kb": true
+  },
+  "Calligraphy": {
+    "kb_id": null,
+    "in_kb": false
+  },
+  "Ceramic kiln": {
+    "kb_id": "ceramic_kiln",
+    "in_kb": true
+  },
+  "Ceramic painting": {
+    "kb_id": "ceramic_kiln",
+    "in_kb": true
+  },
+  "Chu Van An satute": {
+    "kb_id": "hang_can_street",
+    "in_kb": true
+  },
+  "Cầu Thê Húc tối": {
+    "kb_id": null,
+    "in_kb": false
+  },
+  "Da Nang Station (Replica)": {
+    "kb_id": "da_nang_station_replica",
+    "in_kb": true
+  },
+  "Dai Thanh": {
+    "kb_id": "dai_thanh_gate",
+    "in_kb": true
+  },
+  "Dai Thanh Courtyard": {
+    "kb_id": "dai_thanh_courtyard",
+    "in_kb": true
+  },
+  "Dai Thanh courtyard": {
+    "kb_id": "dai_thanh_courtyard",
+    "in_kb": true
+  },
+  "Dai Thanh gate": {
+    "kb_id": "dai_thanh_gate",
+    "in_kb": true
+  },
+  "Dai Trung gate": {
+    "kb_id": "dai_trung_gate",
+    "in_kb": true
+  },
+  "Dai trung gate": {
+    "kb_id": "dai_trung_gate",
+    "in_kb": true
+  },
+  "Dien Hong Park": {
+    "kb_id": "dien_hong_park",
+    "in_kb": true
+  },
+  "Doan Mon Gate": {
+    "kb_id": "doan_mon_gate",
+    "in_kb": true
+  },
+  "Drum house": {
+    "kb_id": "drum_house",
+    "in_kb": true
+  },
+  "Engraving and chasing bronze ware": {
+    "kb_id": "engraving_and_chasing_bronze_ware",
+    "in_kb": true
+  },
+  "Enthic Costume": {
+    "kb_id": "ethnic_costume",
+    "in_kb": true
+  },
+  "Ethnic Costume": {
+    "kb_id": "ethnic_costume",
+    "in_kb": true
+  },
+  "Ethnic costume": {
+    "kb_id": "ethnic_costume",
+    "in_kb": true
+  },
+  "Flag Tower of Hanoi": {
+    "kb_id": "flag_tower_of_hanoi",
+    "in_kb": true
+  },
+  "Flat knitting machine": {
+    "kb_id": "flat_knitting_machine",
+    "in_kb": true
+  },
+  "Floor 2 (women's museum)": {
+    "kb_id": "floor_2_womens_museum",
+    "in_kb": true
+  },
+  "Floor 3 (women with history)": {
+    "kb_id": "floor_3_women_with_history",
+    "in_kb": true
+  },
+  "Floor 4 (women's fashion)": {
+    "kb_id": "floor_4_womens_fashion",
+    "in_kb": true
+  },
+  "Flute": {
+    "kb_id": null,
+    "in_kb": false
+  },
+  "Four pillar": {
+    "kb_id": "the_four_pillars",
+    "in_kb": true
+  },
+  "Gift box": {
+    "kb_id": null,
+    "in_kb": false
+  },
+  "Hanoi Cathedral": {
+    "kb_id": "hanoi_cathedral",
+    "in_kb": true
+  },
+  "Hanoi Railway Station": {
+    "kb_id": "ha_noi_station",
+    "in_kb": true
+  },
+  "Hau Lau": {
+    "kb_id": "thu_le_park",
+    "in_kb": true
+  },
+  "Ho Chi Minh Mausoleum": {
+    "kb_id": "ho_chi_minh_mausoleum",
+    "in_kb": true
+  },
+  "Hoan Kiem Lake": {
+    "kb_id": "hoan_kiem_lake",
+    "in_kb": true
+  },
+  "Hoan Kiem lake": {
+    "kb_id": "hoan_kiem_lake",
+    "in_kb": true
+  },
+  "Khu bia tien si": {
+    "kb_id": null,
+    "in_kb": false
+  },
+  "Khue Van Cac": {
+    "kb_id": "khue_van_cac",
+    "in_kb": true
+  },
+  "Kinh Thien Palace": {
+    "kb_id": "kinh_thien_palace",
+    "in_kb": true
+  },
+  "Lake Thien Quang": {
+    "kb_id": "lake_thien_quang",
+    "in_kb": true
+  },
+  "Lang Gom gate": {
+    "kb_id": "van_mieu_gate",
+    "in_kb": true
+  },
+  "Le Nin park": {
+    "kb_id": "le_nin_park",
+    "in_kb": true
+  },
+  "Long Van Khe Hoi": {
+    "kb_id": "long_van_khe_hoi",
+    "in_kb": true
+  },
+  "Loom": {
+    "kb_id": "loom",
+    "in_kb": true
+  },
+  "Ly Quoc Su Pho Restaurant": {
+    "kb_id": "ly_quoc_su_pho_restaurant",
+    "in_kb": true
+  },
+  "Ly Thai To Park": {
+    "kb_id": "ly_thai_to_park",
+    "in_kb": true
+  },
+  "Ly Thai To statue": {
+    "kb_id": "ly_thai_to_statue",
+    "in_kb": true
+  },
+  "Maria Lady Statue": {
+    "kb_id": "maria_lady_statue",
+    "in_kb": true
+  },
+  "Memorial Temple": {
+    "kb_id": "memorial_temple",
+    "in_kb": true
+  },
+  "Mirror Maze": {
+    "kb_id": "mirror_maze",
+    "in_kb": true
+  },
+  "Modern women's area": {
+    "kb_id": "modern_womens_area",
+    "in_kb": true
+  },
+  "Monument Bac Ho - Bac Ton": {
+    "kb_id": "monument_bac_ho_bac_ton",
+    "in_kb": true
+  },
+  "Monument Bác Hồ - Bác Tôn": {
+    "kb_id": "monument_bac_ho_bac_ton",
+    "in_kb": true
+  },
+  "Mother worship religious space": {
+    "kb_id": "mother_worship_religious_space",
+    "in_kb": true
+  },
+  "Ngoc Son Temple": {
+    "kb_id": "ngoc_son_temple",
+    "in_kb": true
+  },
+  "Ngu Xa Traditional Bronze Casting Shop": {
+    "kb_id": "ngu_xa_traditional_bronze_casting_shop",
+    "in_kb": true
+  },
+  "Ngu Xa Traditional Bronze Casting Workshop": {
+    "kb_id": "ngu_xa_traditional_bronze_casting_workshop",
+    "in_kb": true
+  },
+  "Octagonal Pavilion": {
+    "kb_id": "octagonal_pavilion",
+    "in_kb": true
+  },
+  "Opera House": {
+    "kb_id": "opera_house",
+    "in_kb": true
+  },
+  "Park entrance": {
+    "kb_id": "thong_nhat_park_entrance",
+    "in_kb": true
+  },
+  "Pen Tower": {
+    "kb_id": "pen_tower",
+    "in_kb": true
+  },
+  "Pho": {
+    "kb_id": "pho",
+    "in_kb": true
+  },
+  "Polishing bronze": {
+    "kb_id": "polishing_bronze",
+    "in_kb": true
+  },
+  "Portrait painting": {
+    "kb_id": null,
+    "in_kb": false
+  },
+  "Pottery making": {
+    "kb_id": "pottery",
+    "in_kb": true
+  },
+  "Prepare furnace": {
+    "kb_id": "prepare_furnace",
+    "in_kb": true
+  },
+  "Product finishing": {
+    "kb_id": "product_finishing",
+    "in_kb": true
+  },
+  "Red River": {
+    "kb_id": "red_river",
+    "in_kb": true
+  },
+  "Saigon Station (Replica)": {
+    "kb_id": "saigon_station_replica",
+    "in_kb": true
+  },
+  "Scene 1": {
+    "kb_id": null,
+    "in_kb": false
+  },
+  "Section of Bia Tien Si": {
+    "kb_id": null,
+    "in_kb": false
+  },
+  "Segment 1": {
+    "kb_id": null,
+    "in_kb": false
+  },
+  "Segment 2": {
+    "kb_id": null,
+    "in_kb": false
+  },
+  "Segment 3": {
+    "kb_id": null,
+    "in_kb": false
+  },
+  "Segment 4": {
+    "kb_id": null,
+    "in_kb": false
+  },
+  "Shop": {
+    "kb_id": "pho",
+    "in_kb": true
+  },
+  "Shrimp Cake": {
+    "kb_id": "shrimp_cake",
+    "in_kb": true
+  },
+  "Shrimp Cake Restaurant": {
+    "kb_id": "shrimp_cake_restaurant",
+    "in_kb": true
+  },
+  "Silk Village Market": {
+    "kb_id": "silk_village_market",
+    "in_kb": true
+  },
+  "Softshell Turtle": {
+    "kb_id": "softshell_turtle",
+    "in_kb": true
+  },
+  "Son Trang Palace": {
+    "kb_id": "son_trang_palace",
+    "in_kb": true
+  },
+  "Statue of Lenin": {
+    "kb_id": "statue_of_lenin",
+    "in_kb": true
+  },
+  "Stone Dragon Dien Kinh Thien": {
+    "kb_id": "stone_dragon_dien_kinh_thien",
+    "in_kb": true
+  },
+  "Street": {
+    "kb_id": "ma_may_street",
+    "in_kb": true
+  },
+  "Thai Hoc Buildings": {
+    "kb_id": "thai_hoc_buildings",
+    "in_kb": true
+  },
+  "Thai Hoc building": {
+    "kb_id": "thai_hoc_buildings",
+    "in_kb": true
+  },
+  "Thai Hoc buildings": {
+    "kb_id": "thai_hoc_buildings",
+    "in_kb": true
+  },
+  "Thai Hoc courtyard": {
+    "kb_id": "dai_thanh_courtyard",
+    "in_kb": true
+  },
+  "Thai Hoc gate": {
+    "kb_id": "thai_hoc_gate",
+    "in_kb": true
+  },
+  "Thap rua": {
+    "kb_id": "thap_rua",
+    "in_kb": true
+  },
+  "The Banyan Tree Planted by Hồ Chí Minh": {
+    "kb_id": "the_banyan_tree_planted_by_ho_chi_minh",
+    "in_kb": true
+  },
+  "The Government Guest House": {
+    "kb_id": "the_government_guest_house",
+    "in_kb": true
+  },
+  "The High sanctuary": {
+    "kb_id": "the_high_sanctuary",
+    "in_kb": true
+  },
+  "The Huc Bridge": {
+    "kb_id": "the_huc_bridge",
+    "in_kb": true
+  },
+  "The Huc bridge": {
+    "kb_id": "the_huc_bridge",
+    "in_kb": true
+  },
+  "The main hall of Women's Museum": {
+    "kb_id": "the_main_hall_of_womens_museum",
+    "in_kb": true
+  },
+  "The pavilion of Doctors stelae": {
+    "kb_id": "the_pavilion_of_doctors_stelae",
+    "in_kb": true
+  },
+  "The ‘Ready to Die for the Fatherland to Live’ Monument": {
+    "kb_id": "the_ready_to_die_for_the_fatherland_to_live_monument",
+    "in_kb": true
+  },
+  "Thien Quang well": {
+    "kb_id": "thien_quang_well",
+    "in_kb": true
+  },
+  "Thong Nhat Park": {
+    "kb_id": "thong_nhat_park",
+    "in_kb": true
+  },
+  "Thong Nhat Park entrance": {
+    "kb_id": "thong_nhat_park_entrance",
+    "in_kb": true
+  },
+  "Thong Nhat park": {
+    "kb_id": "thong_nhat_park",
+    "in_kb": true
+  },
+  "Thu Le Park": {
+    "kb_id": "thu_le_park",
+    "in_kb": true
+  },
+  "Tháp Rùa": {
+    "kb_id": "thap_rua",
+    "in_kb": true
+  },
+  "Tran Ba Communal House": {
+    "kb_id": "tran_ba_communal_house",
+    "in_kb": true
+  },
+  "Trang Tien Ice Cream": {
+    "kb_id": "trang_tien_ice_cream",
+    "in_kb": true
+  },
+  "Trang Tien shop": {
+    "kb_id": "trang_tien_shop",
+    "in_kb": true
+  },
+  "Van Lake": {
+    "kb_id": "van_lake",
+    "in_kb": true
+  },
+  "Van Mieu Gate": {
+    "kb_id": "van_mieu_gate",
+    "in_kb": true
+  },
+  "Van Mieu gate": {
+    "kb_id": "van_mieu_gate",
+    "in_kb": true
+  },
+  "Van Phuc Communal house": {
+    "kb_id": "van_phuc_communal_house",
+    "in_kb": true
+  },
+  "Van Phuc Pagoda": {
+    "kb_id": "van_phuc_pagoda",
+    "in_kb": true
+  },
+  "Van Phuc Silk Craft Founder Temple": {
+    "kb_id": "van_phuc_silk_craft_founder_temple",
+    "in_kb": true
+  },
+  "Van Phuc Silk Village Cultural House": {
+    "kb_id": "van_phuc_silk_village_cultural_house",
+    "in_kb": true
+  },
+  "Van Phuc Silk Village gate": {
+    "kb_id": "van_phuc_silk_village_gate",
+    "in_kb": true
+  },
+  "Van Phuc Silk Village stage": {
+    "kb_id": "van_phuc_silk_village_stage",
+    "in_kb": true
+  },
+  "Van lake": {
+    "kb_id": "van_lake",
+    "in_kb": true
+  },
+  "VanMieuGate": {
+    "kb_id": "van_mieu_gate",
+    "in_kb": true
+  },
+  "VietNam National Museum of History": {
+    "kb_id": "vietnam_national_museum_of_history",
+    "in_kb": true
+  },
+  "Vietnam National Museum of History": {
+    "kb_id": "vietnam_national_museum_of_history",
+    "in_kb": true
+  },
+  "Walking Street": {
+    "kb_id": "walking_street",
+    "in_kb": true
+  },
+  "Warping machine": {
+    "kb_id": "warping_machine",
+    "in_kb": true
+  },
+  "Weaving machine": {
+    "kb_id": "weaving_machine",
+    "in_kb": true
+  },
+  "Women's Museum": {
+    "kb_id": "womens_museum",
+    "in_kb": true
+  },
+  "Wonderland \"Uoc Mo Xanh\"": {
+    "kb_id": "wonderland_uoc_mo_xanh",
+    "in_kb": true
+  },
+  "Yen So Gate": {
+    "kb_id": "yen_so_gate",
+    "in_kb": true
+  },
+  "Yen So Park": {
+    "kb_id": "yen_so_park",
+    "in_kb": true
+  },
+  "Yen So park": {
+    "kb_id": "yen_so_park",
+    "in_kb": true
+  },
+  "artifact": {
+    "kb_id": "artifact_3",
+    "in_kb": true
+  },
+  "shop": {
+    "kb_id": "pho",
+    "in_kb": true
+  },
+  "woman's marriage area": {
+    "kb_id": "womans_marriage_area",
+    "in_kb": true
+  }
+}

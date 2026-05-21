@@ -1,0 +1,485 @@
+{
+  "in_kb": [
+    {
+      "video_id": "69f756dbdcb04ab40f2a10d3",
+      "filename": "FLN_BaoTangGom_T48_S.MOV",
+      "duration": 40.681,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 40.681,
+          "landmark_name": "Bat Trang Pottery Museum",
+          "kb_id": "bat_trang_pottery_museum",
+          "gt_node_id": "",
+          "reference_caption": "The Bat Trang Ceramic Museum, or the Center for Vietnamese Craft Village Quintessence, appears majestically along the Bac Hung Hai canal in the suburbs of Hanoi. The structure makes a strong impression with its unique wavy design, consisting of seven massive spiral architectural blocks rising grandly, vividly simulating clay pottery wheels. The structure primarily features the rustic reddish-brown color of fired bricks, with undulating horizontal ledges and some rectangular windows, creating a dynamic and flexible appearance. This is a beautiful fusion between tradition and modernity, honoring the most brilliant quintessence of hand-molding art.",
+          "kb_description": "Let's linger at the exquisite intersection of tradition and modernity, which is the Bát Tràng Ceramic Museum, also known as the Vietnam Craft Village Quintessence Center, majestically located along the Bac Hung Hai canal in the outskirts of Hanoi. Although it has only emerged in recent years, the building continues to write the thousand-year-old golden history from the time our ancestors sailed downstream from Bo Bat to this alluvial plain to establish their livelihood. The museum's name embodies the aspiration to honor and fully preserve the most brilliant quintessence of hand-shaping art. Stepping into this space, the breath of contemporary art intertwines closely with the rhythm of craft village life. Visitors flock here not only to immerse themselves in viewing precious ancient ceramic collections but also to enthusiastically experience wheel-throwing pottery themselves and capture beautiful photos. Standing in the heart of the museum, travelers are suddenly filled with intense pride in the wisdom and skillful hands of the artisans. The experience of touching each cool wall panel brings a profound sensation, awakening an enduring love for heritage that lasts through the ages.\n\nSeven colossal spiral architectural blocks rise majestically, vividly simulating potter's wheels. The rustic reddish-brown hue of fired bricks along with light-catching glass panels immediately catches the eye. The exclusive identifying feature is the interwoven wavy lines forming spectacular open valleys. The majestic structure casts its shadow upon the tranquil Bắc Hưng Hải canal, adjacent to a tree-lined road with passing vehicles."
+        }
+      ]
+    },
+    {
+      "video_id": "69f756dbdcb04ab40f2a10d4",
+      "filename": "FLN_BaoTangGom_T49_S.MOV",
+      "duration": 35.625,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 35.625,
+          "landmark_name": "Bat Trang Pottery Museum",
+          "kb_id": "bat_trang_pottery_museum",
+          "gt_node_id": "",
+          "reference_caption": "Majestically located along the Bắc Hưng Hải canal in the suburbs of Hanoi, Bảo tàng Gốm Bát Tràng, also known as Trung tâm Tinh hoa Làng nghề Việt, stands out with its unique architecture. The building makes a strong impression with seven massive spiral architectural blocks majestically rising, vividly simulating traditional pottery wheels. The interwoven wavy lines create a dynamic facade, curving like spectacular open valleys. The exterior features the rustic reddish-brown color of fired bricks, harmoniously combined with light-catching glass panels and dark-framed rectangular windows, creating a cohesive and artistic earthy palette. The top of the building has a flat roof with some greenery, contributing to a beautiful blend of tradition and modernity, where the thousand-year essence of ceramics is honored and preserved.",
+          "kb_description": "Let's linger at the exquisite intersection of tradition and modernity, which is the Bát Tràng Ceramic Museum, also known as the Vietnam Craft Village Quintessence Center, majestically located along the Bac Hung Hai canal in the outskirts of Hanoi. Although it has only emerged in recent years, the building continues to write the thousand-year-old golden history from the time our ancestors sailed downstream from Bo Bat to this alluvial plain to establish their livelihood. The museum's name embodies the aspiration to honor and fully preserve the most brilliant quintessence of hand-shaping art. Stepping into this space, the breath of contemporary art intertwines closely with the rhythm of craft village life. Visitors flock here not only to immerse themselves in viewing precious ancient ceramic collections but also to enthusiastically experience wheel-throwing pottery themselves and capture beautiful photos. Standing in the heart of the museum, travelers are suddenly filled with intense pride in the wisdom and skillful hands of the artisans. The experience of touching each cool wall panel brings a profound sensation, awakening an enduring love for heritage that lasts through the ages.\n\nSeven colossal spiral architectural blocks rise majestically, vividly simulating potter's wheels. The rustic reddish-brown hue of fired bricks along with light-catching glass panels immediately catches the eye. The exclusive identifying feature is the interwoven wavy lines forming spectacular open valleys. The majestic structure casts its shadow upon the tranquil Bắc Hưng Hải canal, adjacent to a tree-lined road with passing vehicles."
+        }
+      ]
+    },
+    {
+      "video_id": "6a09604654cac746d34c2039",
+      "filename": "B03_CVConCoc_S_T09.MOV",
+      "duration": 34.921,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 34.921,
+          "landmark_name": "Dien Hong Park",
+          "kb_id": "dien_hong_park",
+          "gt_node_id": "",
+          "reference_caption": "At Vườn hoa Con Cóc, a small corner deeply imbued with the spirit of Hanoi's memories, a central structure with a solemn appearance stands out. It is a tall, slender, rectangular monument with a smooth, light-colored surface and a series of vertical grooves running along its length. The base of the monument is adorned with intricate carvings and numerous statues, including a prominent figure seated on a pedestal. The area surrounding this structure is further embellished with many smaller statues and elaborate decorative elements, creating a detailed and artistically rich scene. These small statues are the familiar stone toads, rain-calling mascots, which gave the garden its popular and familiar name, recalling the history of this place as Diên Hồng Square, built by the French in the early 20th century with a European-style fountain in the heart of Hanoi.",
+          "kb_description": "Amid the bustling streets near Hanoi Opera House, Toad Flower Garden appears as a small corner filled with the city’s quiet memories. Few people realize that this place was once Dien Hong Square, built by the French in the early 20th century with a fountain at its center, serving as a European-style urban highlight in Hanoi. The name “Toad Garden” comes from the stone toad statues surrounding the fountain, echoing a familiar image in Vietnamese folklore, where the toad is believed to summon rain, symbolizing life and hope. Over time, this simple and charming name has become far more familiar than its official one. Today, the garden is not only a resting spot for passersby but also a rare pause in the city’s fast rhythm. Locals sit on stone benches, chatting or reading, while visitors stop to take photos, amused by the small toads that seem to step out of a folk tale. There are no grand festivals or noisy events here, yet its simplicity is exactly what gives the place its unique charm, like a living page of Hanoi’s memory. When leaving, people often carry with them a sense of familiarity, as if they had just visited a place that has quietly existed alongside the city for generations.\n\nThe garden is compact, arranged in a circular layout with a stone fountain at the center. The dominant tones are the aged gray of stone and the green of surrounding trees. The most distinctive feature is the ring of small toad statues facing inward toward the water. Around it are stone benches, low fences, and busy streets, framed by old buildings and leafy trees."
+        }
+      ]
+    },
+    {
+      "video_id": "69e903810a741c710173184e",
+      "filename": "B03_CVConCoc_S_T03.MOV",
+      "duration": 31.445,
+      "gt_segments": [
+        {
+          "start_time": 11.679959,
+          "end_time": 18.51564,
+          "landmark_name": "Dien Hong Park",
+          "kb_id": "dien_hong_park",
+          "gt_node_id": "",
+          "reference_caption": "At Con Coc Flower Garden, a tall, slender fountain structure emerges as an architectural highlight bearing a strong imprint of time. The structure features a rectangular base that tapers into a central column, with a series of steps leading up to its main body. The base and column are adorned with intricate carvings and, notably, stone toad statues – rain-calling mascots that gave the garden its familiar name. The top of the fountain is decorated with details resembling a crown or a laurel wreath, adding to its solemn appearance. The entire fountain is surrounded by greenery, including trees and shrubs, creating a cool, refreshing space that partially obscures the base and column, evoking a small corner imbued with the breath of memory and serving as a rare respite amidst the bustling urban pace of Hanoi, the capital.",
+          "kb_description": "Amid the bustling streets near Hanoi Opera House, Toad Flower Garden appears as a small corner filled with the city’s quiet memories. Few people realize that this place was once Dien Hong Square, built by the French in the early 20th century with a fountain at its center, serving as a European-style urban highlight in Hanoi. The name “Toad Garden” comes from the stone toad statues surrounding the fountain, echoing a familiar image in Vietnamese folklore, where the toad is believed to summon rain, symbolizing life and hope. Over time, this simple and charming name has become far more familiar than its official one. Today, the garden is not only a resting spot for passersby but also a rare pause in the city’s fast rhythm. Locals sit on stone benches, chatting or reading, while visitors stop to take photos, amused by the small toads that seem to step out of a folk tale. There are no grand festivals or noisy events here, yet its simplicity is exactly what gives the place its unique charm, like a living page of Hanoi’s memory. When leaving, people often carry with them a sense of familiarity, as if they had just visited a place that has quietly existed alongside the city for generations.\n\nThe garden is compact, arranged in a circular layout with a stone fountain at the center. The dominant tones are the aged gray of stone and the green of surrounding trees. The most distinctive feature is the ring of small toad statues facing inward toward the water. Around it are stone benches, low fences, and busy streets, framed by old buildings and leafy trees."
+        }
+      ]
+    },
+    {
+      "video_id": "69e903810a741c710173184e",
+      "filename": "B03_CVConCoc_S_T03.MOV",
+      "duration": 31.445,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 8.437843,
+          "landmark_name": "Dien Hong Park",
+          "kb_id": "dien_hong_park",
+          "gt_node_id": "",
+          "reference_caption": "At Vườn hoa Con Cóc, in the heart of Hanoi, stands a prominent ancient fountain, a tall, slender structure bearing the distinct mark of early 20th-century French architecture. The fountain's rectangular base transitions into a narrower column, elaborately adorned with symmetrical sculptures, most notably stone frog statues – familiar rain-calling mascots in Vietnamese folklore – arranged around the base. The column itself is exquisitely carved with vertical lines, evoking a solemn, classical aesthetic. The top of the fountain is crowned with a small decorative element, completing the unique architectural beauty of the structure, which is not only a visual highlight but also a vivid symbol, telling the story of a corner of Hanoi where ancient charm intertwines with a modern spirit.",
+          "kb_description": "Amid the bustling streets near Hanoi Opera House, Toad Flower Garden appears as a small corner filled with the city’s quiet memories. Few people realize that this place was once Dien Hong Square, built by the French in the early 20th century with a fountain at its center, serving as a European-style urban highlight in Hanoi. The name “Toad Garden” comes from the stone toad statues surrounding the fountain, echoing a familiar image in Vietnamese folklore, where the toad is believed to summon rain, symbolizing life and hope. Over time, this simple and charming name has become far more familiar than its official one. Today, the garden is not only a resting spot for passersby but also a rare pause in the city’s fast rhythm. Locals sit on stone benches, chatting or reading, while visitors stop to take photos, amused by the small toads that seem to step out of a folk tale. There are no grand festivals or noisy events here, yet its simplicity is exactly what gives the place its unique charm, like a living page of Hanoi’s memory. When leaving, people often carry with them a sense of familiarity, as if they had just visited a place that has quietly existed alongside the city for generations.\n\nThe garden is compact, arranged in a circular layout with a stone fountain at the center. The dominant tones are the aged gray of stone and the green of surrounding trees. The most distinctive feature is the ring of small toad statues facing inward toward the water. Around it are stone benches, low fences, and busy streets, framed by old buildings and leafy trees."
+        }
+      ]
+    },
+    {
+      "video_id": "69e9028f0a741c7101731834",
+      "filename": "NhaThoLon_S_T011.MOV",
+      "duration": 34.133333,
+      "gt_segments": [
+        {
+          "start_time": 14.635698,
+          "end_time": 34.133333,
+          "landmark_name": "Hanoi Cathedral",
+          "kb_id": "hanoi_cathedral",
+          "gt_node_id": "",
+          "reference_caption": "Emerging amidst Hanoi's bustling Old Quarter is the Hanoi Grand Cathedral, a massive Gothic architectural work, possessing an ancient beauty that has stood for over a century. The building stands out with its symmetrical facade, two soaring bell towers on either side, and a large clock tower in the center. The facade is built of elaborate stone, featuring pointed arch windows characteristic of the Gothic style, intricate stone tracery, and strong vertical ribbing. The large clock is set within an ornate frame, surrounded by numerous statues and meticulous sculptural elements, creating an imposing grandeur. The entire structure features an ancient moss-gray color scheme, with stone wall surfaces bearing the marks of time, serving as the most important cathedral of the Archdiocese of Hanoi and a European architectural landmark in the heart of the thousand-year-old capital.",
+          "kb_description": "Amidst Hanoi's bustling Old Quarter, Hanoi Grand Cathedral appears as an ancient European corner that has stood silently in the heart of the city for over a century. The structure is located on Nha Chung Street, near Hoan Kiem Lake, with two soaring bell towers becoming a familiar landmark for the capital's residents. The cathedral was built in the late 19th century in the Gothic style, inspired by Notre Dame Cathedral in Paris, on the site that once belonged to Bao Thien Pagoda in ancient times. The name \"Grand Cathedral\" is not only due to its prominent scale but also because it is the most important cathedral of the Archdiocese of Hanoi.\n\nEvery early morning or late afternoon, the square in front of the cathedral is always filled with the laughter and chatter of tourists, street vendors, and groups of young people sitting at cafes watching people pass by. During Christmas, the place glows brightly with lights, and hymns echo in the winter weather, giving the entire neighborhood a beauty that is both sacred and intimately familiar.\n\nWhat lingers after each visit is not just the ancient beauty of the gray stone walls, but also a special sense of peace, as if amidst the bustling pace of Hanoi life, there still exists a tranquil silence of time.\n\nThe Grand Cathedral stands out with its symmetrical facade, two tall bell towers, and characteristic Gothic arched windows. The entire structure bears an ancient moss-gray hue, its stone wall surfaces covered with the marks of time. The most recognizable feature is the large clock located in the middle of the facade above the main gate. Surrounding it are often a small, crowded square, green trees, coffee shops, and the bustling old streets of downtown Hanoi."
+        }
+      ]
+    },
+    {
+      "video_id": "69e902940a741c710173183e",
+      "filename": "NhaThoLon_S_T02.MOV",
+      "duration": 32.916,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 32.916,
+          "landmark_name": "Hanoi Cathedral",
+          "kb_id": "hanoi_cathedral",
+          "gt_node_id": "",
+          "reference_caption": "Amidst the bustling Old Quarter of Hanoi, the Grand Cathedral rises majestically with its ancient Gothic architecture, having stood for over a century. The towering building stands out with intricate stone carvings and characteristic pointed arches, reminiscent of Notre Dame Cathedral in Paris. The center of the facade is adorned with a golden cross featuring a unique circular design. The structure has multiple levels with tall, narrow windows and elaborate decorative details, along with a large pointed-arch entrance at the bottom. As the important cathedral of the Archdiocese of Hanoi, it is not only an architectural landmark but also a sacred, contemplative pause amidst the bustling pace of the capital.",
+          "kb_description": "Amidst Hanoi's bustling Old Quarter, Hanoi Grand Cathedral appears as an ancient European corner that has stood silently in the heart of the city for over a century. The structure is located on Nha Chung Street, near Hoan Kiem Lake, with two soaring bell towers becoming a familiar landmark for the capital's residents. The cathedral was built in the late 19th century in the Gothic style, inspired by Notre Dame Cathedral in Paris, on the site that once belonged to Bao Thien Pagoda in ancient times. The name \"Grand Cathedral\" is not only due to its prominent scale but also because it is the most important cathedral of the Archdiocese of Hanoi.\n\nEvery early morning or late afternoon, the square in front of the cathedral is always filled with the laughter and chatter of tourists, street vendors, and groups of young people sitting at cafes watching people pass by. During Christmas, the place glows brightly with lights, and hymns echo in the winter weather, giving the entire neighborhood a beauty that is both sacred and intimately familiar.\n\nWhat lingers after each visit is not just the ancient beauty of the gray stone walls, but also a special sense of peace, as if amidst the bustling pace of Hanoi life, there still exists a tranquil silence of time.\n\nThe Grand Cathedral stands out with its symmetrical facade, two tall bell towers, and characteristic Gothic arched windows. The entire structure bears an ancient moss-gray hue, its stone wall surfaces covered with the marks of time. The most recognizable feature is the large clock located in the middle of the facade above the main gate. Surrounding it are often a small, crowded square, green trees, coffee shops, and the bustling old streets of downtown Hanoi."
+        }
+      ]
+    },
+    {
+      "video_id": "69e902930a741c710173183b",
+      "filename": "NhaThoLon_S_T05.MOV",
+      "duration": 32.212,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 32.212,
+          "landmark_name": "Hanoi Cathedral",
+          "kb_id": "hanoi_cathedral",
+          "gt_node_id": "",
+          "reference_caption": "Hanoi Grand Cathedral, an ancient Gothic architectural work inspired by Notre Dame Cathedral Paris, stands majestically amidst the bustling Old Quarter, near Hoan Kiem Lake. With its two towering, slender bell towers characteristic of the Gothic style, the cathedral appears as a serene European corner in the heart of the capital. The symmetrical facade is adorned with intricate stone carvings, pointed arches, and arched glass windows. Prominently featured above the central entrance is a large golden cross, elaborately decorated with a fleur-de-lis motif, along with a grand clock situated above the main gate. The multi-tiered structure features intricate stone patterns (tracery) and statues placed at various heights; the entire edifice is clad in an ancient moss-grey color, its stone wall surfaces bearing the marks of time, creating a beauty that is both sacred and full of nostalgia. This is not only the most important cathedral of the Archdiocese of Hanoi but also a symbol that offers a special sense of peace amidst the city's bustling pace of life.",
+          "kb_description": "Amidst Hanoi's bustling Old Quarter, Hanoi Grand Cathedral appears as an ancient European corner that has stood silently in the heart of the city for over a century. The structure is located on Nha Chung Street, near Hoan Kiem Lake, with two soaring bell towers becoming a familiar landmark for the capital's residents. The cathedral was built in the late 19th century in the Gothic style, inspired by Notre Dame Cathedral in Paris, on the site that once belonged to Bao Thien Pagoda in ancient times. The name \"Grand Cathedral\" is not only due to its prominent scale but also because it is the most important cathedral of the Archdiocese of Hanoi.\n\nEvery early morning or late afternoon, the square in front of the cathedral is always filled with the laughter and chatter of tourists, street vendors, and groups of young people sitting at cafes watching people pass by. During Christmas, the place glows brightly with lights, and hymns echo in the winter weather, giving the entire neighborhood a beauty that is both sacred and intimately familiar.\n\nWhat lingers after each visit is not just the ancient beauty of the gray stone walls, but also a special sense of peace, as if amidst the bustling pace of Hanoi life, there still exists a tranquil silence of time.\n\nThe Grand Cathedral stands out with its symmetrical facade, two tall bell towers, and characteristic Gothic arched windows. The entire structure bears an ancient moss-gray hue, its stone wall surfaces covered with the marks of time. The most recognizable feature is the large clock located in the middle of the facade above the main gate. Surrounding it are often a small, crowded square, green trees, coffee shops, and the bustling old streets of downtown Hanoi."
+        }
+      ]
+    },
+    {
+      "video_id": "69e9028f0a741c7101731834",
+      "filename": "NhaThoLon_S_T011.MOV",
+      "duration": 34.133333,
+      "gt_segments": [
+        {
+          "start_time": 9.634027,
+          "end_time": 14.635698,
+          "landmark_name": "Maria Lady Statue",
+          "kb_id": "maria_lady_statue",
+          "gt_node_id": "",
+          "reference_caption": "The statue is a tall, slender figure with an intricate, elaborate design, featuring complex, layered elements that create a sense of depth. The figure appears to be adorned with a crown or headdress at the top and decorative details flowing down its length. The statue's surface has a patina suggesting age and weathering, with a color palette of green, orange, and beige, along with accents of darker tones, giving it a rich, historical appearance. This image is reminiscent of the Statue of the Virgin Mary standing quietly in front of St. Joseph's Cathedral in Hanoi, a peaceful anchor amidst the bustling Old Quarter. With its solemn, ancient appearance, the statue is not just a sculpture but also a symbol of compassion and protection, contributing to a rare moment of serene quietude in the city center.",
+          "kb_description": "Right in front of Hanoi Grand Cathedral, the statue of the Virgin Mary of Hanoi Grand Cathedral stands silently in the small courtyard, like a peaceful haven in the heart of the bustling Old Quarter. The statue is placed on a high stone pedestal, facing the square and the flow of people passing by every day, creating a familiar image associated with the Grand Cathedral for many years now. In Catholic tradition, the Virgin Mary is considered a symbol of compassion and protection, which is why parishioners often stop here to pray, light candles, or quietly sit and reflect under the resounding church bells.\n\nEvery Christmas season or on major holidays, the area around the statue becomes more vibrant with fresh flowers, lights, and carols spreading throughout Nha Chung Street. Visitors often stop to take photos, but after a few minutes, everyone easily gets drawn into the very unique tranquil atmosphere that the statue brings. Amidst the ancient stone walls and the bustling pace of Hanoi's life, the image of the silent Virgin Mary seems to make time slow down, allowing people to feel more clearly a rare sense of serenity in the heart of the city."
+        }
+      ]
+    },
+    {
+      "video_id": "69e902940a741c710173183d",
+      "filename": "NhaThoLon_S_T03.MOV",
+      "duration": 32.533333,
+      "gt_segments": [
+        {
+          "start_time": 21.768627,
+          "end_time": 32.533333,
+          "landmark_name": "Maria Lady Statue",
+          "kb_id": "maria_lady_statue",
+          "gt_node_id": "",
+          "reference_caption": "Right in front of Hanoi Cathedral, amidst a small courtyard, the statue of the Virgin Mary appears with solemnity and reverence. The statue depicts the Virgin Mary standing, draped in a flowing robe, one arm raised holding a cross. Her head is adorned with crown-like details, and the facial features are meticulously carved, exuding a serene expression. Placed on a high, inscribed stone pedestal, the statue is not only a work of art but also a symbol of compassion and protection within the Catholic tradition, creating a peaceful sanctuary amidst the bustling Old Quarter. Here, the faithful often stop to pray or reflect. Especially during each Christmas season or major holidays, the area around the statue becomes vibrant with fresh flowers, lights, and hymns, creating a unique sacred and tranquil atmosphere. Amidst the bustling pace of life in Hanoi, the silent image of the Virgin Mary seems to slow down time, allowing people to more clearly feel the rare serenity in the heart of the city.",
+          "kb_description": "Right in front of Hanoi Grand Cathedral, the statue of the Virgin Mary of Hanoi Grand Cathedral stands silently in the small courtyard, like a peaceful haven in the heart of the bustling Old Quarter. The statue is placed on a high stone pedestal, facing the square and the flow of people passing by every day, creating a familiar image associated with the Grand Cathedral for many years now. In Catholic tradition, the Virgin Mary is considered a symbol of compassion and protection, which is why parishioners often stop here to pray, light candles, or quietly sit and reflect under the resounding church bells.\n\nEvery Christmas season or on major holidays, the area around the statue becomes more vibrant with fresh flowers, lights, and carols spreading throughout Nha Chung Street. Visitors often stop to take photos, but after a few minutes, everyone easily gets drawn into the very unique tranquil atmosphere that the statue brings. Amidst the ancient stone walls and the bustling pace of Hanoi's life, the image of the silent Virgin Mary seems to make time slow down, allowing people to feel more clearly a rare sense of serenity in the heart of the city."
+        }
+      ]
+    },
+    {
+      "video_id": "6a0b41448b51ec946b423957",
+      "filename": "A1_018_DenNgocSonToanCanh_M_T02.mp4",
+      "duration": 95.066667,
+      "gt_segments": [
+        {
+          "start_time": 73.022222,
+          "end_time": 89.211111,
+          "landmark_name": "Ngoc Son Temple",
+          "kb_id": "ngoc_son_temple",
+          "gt_node_id": "",
+          "reference_caption": "The Huc Bridge, a famous vibrant red bridge spanning Hoan Kiem Lake, is the entrance to the sacred Ngoc Son Temple. The bridge's structure stands out with its distinctive red color, vertical baluster, and flat top rail. Prominently featured at the center is a unique rectangular arch, flanked by two intricately decorated vertical columns. The base of the arch is adorned with lush green foliage and vibrant flowers, creating a harmonious beauty between architecture and nature, like a soft silk ribbon draped across the emerald waters of Sword Lake.",
+          "kb_description": "Ngoc Son Temple is one of Hanoi's prominent historical and cultural relics, often simply called Ngoc Son Temple, distinguished by its unique location right in the middle of Hoan Kiem Lake. The temple was built in the 19th century, on the site of an ancient pagoda, and has undergone renovations through many periods, especially during the Nguyen Dynasty.\nThe temple worships Tran Hung Dao – a national hero famous for his victories against the Yuan-Mongol invaders, along with other civil gods and martial gods, embodying a harmonious blend of patriotism and the Vietnamese tradition of valuing education. Therefore, it is not only a tourist attraction but also a spiritual space where locals and visitors come to pray for peace, luck, and success in their studies and careers.\nThroughout its long history, Ngoc Son Temple has always been intertwined with the cultural life of Hanoians and is an important destination during major festivals, especially the Lunar New Year, when crowds flock here to offer incense and pay homage.\nAn interesting detail that impresses many visitors is that the temple once displayed the specimen of a giant turtle from Hoan Kiem Lake, linked to the sacred legend of King Le Loi returning his magic sword. This further enhances the temple's mystical appeal, making each visit not just a journey of architectural discovery but also an entry into the world of Vietnamese history and legends.\n\nGracefully situated on a small island in the middle of Hoan Kiem Lake, Ngoc Son Temple appears like a fairy tale painting in the heart of Hanoi. To enter the temple, visitors will cross the vibrant red The Huc Bridge, curving softly like a silk ribbon draped over the blue water. The curved tiled roofs, dark wooden pillars, and tranquil temple courtyard create a sacred yet very intimate space. Surrounding it are tree shadows reflecting on the lake's surface, making the entire landscape both serene and poetic, especially beautiful in the early morning or when evening lights reflect dazzlingly."
+        }
+      ]
+    },
+    {
+      "video_id": "69e902a10a741c7101731844",
+      "filename": "NhaHatLon_S_T04.MOV",
+      "duration": 34.837,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 34.837,
+          "landmark_name": "Opera House",
+          "kb_id": "opera_house",
+          "gt_node_id": "",
+          "reference_caption": "The building stands out with a grand facade featuring a symmetrical design, characterized by a central section flanked by two wings. The central section comprises a series of tall, narrow windows with decorative frames, topped by an elaborate patterned cornice. Above the central section, there are two prominent spires with intricate details and decorative finials. The building's exterior is adorned with vertical pilasters and horizontal bands, creating a sense of rhythm and structure. The color palette consists of beige and cream tones, with contrasting dark accents highlighting the architectural details. This is the Hanoi Opera House, a luxurious pause standing at the intersection of Trang Tien Street and August Revolution Square. The structure, predominantly cream-yellow in color, was built in the early 20th century during the French colonial period, inspired by the Opéra Garnier in Paris. It is not only a stage for concerts and plays but also a witness to many important historical events, a bridge between the past and present of the thousand-year-old civilized capital.",
+          "kb_description": "Standing at the intersection of Tràng Tiền street and Cách mạng Tháng Tám Square, the Hanoi Opera House emerges as an elegant silence amidst the bustling pace of the capital, a place where every step seems to slow down to listen to the breath of history and art. The building was constructed in the early 20th century during the French colonial period, inspired by the Opéra Garnier in Paris, but over time it has come to embody Hanoi's very own unique story. It is not only a stage for concerts and plays but has also witnessed important historical events, especially the vibrant days after the Cách mạng Tháng Tám when the square in front became a gathering point for crowds yearning for independence. Nowadays, when night falls, warm yellow lights illuminate its steps, and locals and tourists flock here, some to enjoy art, others just to stand silently and admire its classical beauty amidst the modern city. The atmosphere here is both grand and approachable, like a bridge connecting the past and the present. And then, upon leaving, people often carry a very unique feeling, as if they have just touched a Hanoi that is both ancient and vibrant, where art is not just performed but also felt with both memory and heart.\n\nThe building has a symmetrical, large-scale form with a high dome and straight Corinthian columns in front. The dominant cream yellow color combined with dark blue windows and white railings creates a prominent classical look. The most recognizable feature is the large staircase leading up to the main hall, which often appears in every view. Surrounding it are a wide square, busy streets, and rows of green trees."
+        }
+      ]
+    },
+    {
+      "video_id": "69e902a40a741c7101731847",
+      "filename": "NhaHatLon_M_T01.MOV",
+      "duration": 106.302,
+      "gt_segments": [
+        {
+          "start_time": 60.245816,
+          "end_time": 106.302,
+          "landmark_name": "Opera House",
+          "kb_id": "opera_house",
+          "gt_node_id": "",
+          "reference_caption": "The Hanoi Opera House appears with the beauty of classical French architecture, inspired by the renowned Opéra Garnier in Paris. The building stands out with a grand facade, featuring a row of tall, pristine white Corinthian columns supporting a flat roof, along with an impressive main entrance with large arched doorways and a wide stone staircase leading up. The exterior is painted in an elegant pale yellow hue, accented with white details, highlighting intricate architectural features such as cornices, pilasters, and stone carvings. Not just an architectural masterpiece built in the early 20th century, the Opera House is also an important historical witness of the capital, especially the vibrant events after the August Revolution, creating a unique blend of art, history, and the modern rhythm of Hanoi.",
+          "kb_description": "Standing at the intersection of Tràng Tiền street and Cách mạng Tháng Tám Square, the Hanoi Opera House emerges as an elegant silence amidst the bustling pace of the capital, a place where every step seems to slow down to listen to the breath of history and art. The building was constructed in the early 20th century during the French colonial period, inspired by the Opéra Garnier in Paris, but over time it has come to embody Hanoi's very own unique story. It is not only a stage for concerts and plays but has also witnessed important historical events, especially the vibrant days after the Cách mạng Tháng Tám when the square in front became a gathering point for crowds yearning for independence. Nowadays, when night falls, warm yellow lights illuminate its steps, and locals and tourists flock here, some to enjoy art, others just to stand silently and admire its classical beauty amidst the modern city. The atmosphere here is both grand and approachable, like a bridge connecting the past and the present. And then, upon leaving, people often carry a very unique feeling, as if they have just touched a Hanoi that is both ancient and vibrant, where art is not just performed but also felt with both memory and heart.\n\nThe building has a symmetrical, large-scale form with a high dome and straight Corinthian columns in front. The dominant cream yellow color combined with dark blue windows and white railings creates a prominent classical look. The most recognizable feature is the large staircase leading up to the main hall, which often appears in every view. Surrounding it are a wide square, busy streets, and rows of green trees."
+        }
+      ]
+    },
+    {
+      "video_id": "69e902a40a741c7101731847",
+      "filename": "NhaHatLon_M_T01.MOV",
+      "duration": 106.302,
+      "gt_segments": [
+        {
+          "start_time": 28.858648,
+          "end_time": 60.331035,
+          "landmark_name": "Opera House",
+          "kb_id": "opera_house",
+          "gt_node_id": "",
+          "reference_caption": "The building emerged with a grand facade, symmetrical design, highlighted by a series of tall, white columns supporting an ornate cornice. The central entrance is flanked by two large arched windows, along with intricate details such as cornices, pilasters, and a series of smaller windows above the columns. The exterior is predominantly white with yellow accents around the windows and the base, creating a classic, stately beauty. A flat roofline with a slight overhang completes the overall architecture. This is the Hanoi Opera House, a luxurious pause amidst the bustling life of the capital, standing at the intersection of Trang Tien Street and August Revolution Square. The structure was built in the early 20th century during the French colonial period, inspired by the Opéra Garnier in Paris, serving not only as a stage for concerts and plays but also as a witness to many important historical events, connecting Hanoi's past and present.",
+          "kb_description": "Standing at the intersection of Tràng Tiền street and Cách mạng Tháng Tám Square, the Hanoi Opera House emerges as an elegant silence amidst the bustling pace of the capital, a place where every step seems to slow down to listen to the breath of history and art. The building was constructed in the early 20th century during the French colonial period, inspired by the Opéra Garnier in Paris, but over time it has come to embody Hanoi's very own unique story. It is not only a stage for concerts and plays but has also witnessed important historical events, especially the vibrant days after the Cách mạng Tháng Tám when the square in front became a gathering point for crowds yearning for independence. Nowadays, when night falls, warm yellow lights illuminate its steps, and locals and tourists flock here, some to enjoy art, others just to stand silently and admire its classical beauty amidst the modern city. The atmosphere here is both grand and approachable, like a bridge connecting the past and the present. And then, upon leaving, people often carry a very unique feeling, as if they have just touched a Hanoi that is both ancient and vibrant, where art is not just performed but also felt with both memory and heart.\n\nThe building has a symmetrical, large-scale form with a high dome and straight Corinthian columns in front. The dominant cream yellow color combined with dark blue windows and white railings creates a prominent classical look. The most recognizable feature is the large staircase leading up to the main hall, which often appears in every view. Surrounding it are a wide square, busy streets, and rows of green trees."
+        }
+      ]
+    },
+    {
+      "video_id": "6a0b41448b51ec946b423957",
+      "filename": "A1_018_DenNgocSonToanCanh_M_T02.mp4",
+      "duration": 95.066667,
+      "gt_segments": [
+        {
+          "start_time": 10.057777,
+          "end_time": 20.735555,
+          "landmark_name": "Pen Tower",
+          "kb_id": "pen_tower",
+          "gt_node_id": "",
+          "reference_caption": "A multi-tiered structure with rectangular windows framed by light-colored material, possibly stone or concrete, appears in the frame. This is Tháp Bút – a unique cultural and architectural symbol located at Hoan Kiem Lake, central Hanoi. The structure has a vertical, ancient appearance, with clear signs of weathering and even patches of green plants growing on the tower's body, attesting to its long history. Prominently on the facade are three red Han characters \"Tả Thanh Thiên\" (Writing on the Blue Sky) carved vertically along the middle tiers, demonstrating the Vietnamese people's spirit of learning and profound literary tradition. Although the image may not clearly show the tower's peak as an inverted brush nib, this is a distinguishing feature of Tháp Bút, built in 1865 by the scholar Nguyễn Văn Siêu. Tháp Bút is not just a relic but also an integral part of Hanoi's thousand years of civilization, closely associated with the capital's unique historical and cultural narrative.",
+          "kb_description": "The Pen Tower at Hoan Kiem Lake is a five-story stone tower, built in the 18th year of Tự Đức (1865) on the site of the old Độc Tôn mountain, based on the idea of Confucian scholar Nguyễn Văn Siêu, located outside the entrance to The Huc Bridge and Ngoc Son Temple.\n\nThe tower stands on a mountain formed by stacked rocks, 12m in diameter and 4m high. The square tower has five stories, standing 28m tall. Its peak is an inverted brush pen nib. Both the handle and the nib are 0.9m high. On the body of the three middle stories, three characters Tả Thanh Thiên (Chinese characters: 寫青天) are carved vertically, meaning \"Writing on the Blue Sky\".\n\nThe Pen Tower architectural complex celebrates literature, but simultaneously also commemorates the military achievements of Lord Trịnh in suppressing the rebellion of Quận Hẻo Nguyễn Danh Phương. The Pen Tower stands on a mound filled with boulders; this mound symbolizes a mountain named Độc Tôn. In the essay \"Bút Tháp chí\" composed by Nguyễn Văn Siêu in 1865, carved directly on the tower body, it reads:\n\nOn the peak of Độc Tôn mountain stands the five-story Pen Tower. The tower gains height from the mountain, and the mountain gains eternal fame from the tower. Around the Lê Vĩnh Hựu era (1735-1740), the rebel Phương secretly occupied Độc Tôn mountain in Phổ Yên district, Thái Nguyên province. The royal army went to suppress him, stationed at Ngọc Bội mountain, continuously defeating the enemy. On the day of triumph, taking advantage of the high mound, a mountain was built to commemorate the achievement, named Độc Tôn mountain. After the political upheaval, the mountain was covered with thorns and bushes. In the lake was Văn Xương Temple. During the temple's renovation, looking towards the East bank, a mountain was seen, so the grass was cleared, trees removed, and the Pen Tower was built, facing the Inkstone Pavilion. That mountain is a symbol of military victory, and the tower is a symbol of culture. Both rely on each other to exist.\n\nAt the same time as building Độc Tôn mountain on the East bank of the lake, Lord Trịnh also had Ngọc Bội mountain built on the West bank of the lake (Độc Tôn mountain and Ngọc Bội mountain in Thăng Long are two different mountains). Next to the mountain was Khánh Thụy Palace. During the Lê Chiêu Thống era, this palace was burned down, but its name remains in two villages on either side of the palace: Tả Khánh Thụy and Hữu Khánh Thụy. During the Nguyễn dynasty, these two villages merged with Báo Thiên village to form Báo Khánh village. Today, Báo Khánh street remains as a relic.\n\nAt the beginning of The Huc Bridge is the Inkstone Pavilion. The inkstone is placed on the first gate leading into the temple; it is a blue stone inkstone carved in the shape of half a peach, cut vertically, and hollowed out. The peach's length is 0.97m, width 0.8m, height 0.3m, and circumference 2m, with three thiềm thừ (toads) supporting the inkstone like three tripod legs. Notably, an inscription is carved on the body of the inkstone, and its author is also Nguyễn Văn Siêu. It only has 64 Chinese characters but its meaning is very profound, temporarily translated as:\n\nIn ancient times, a hollow in the earth was used as an inkstone, annotating the Đạo Đức kinh, pondering by a large inkstone, writing the Hán Xuân Thu. From stone, an inkstone is separated, without a fixed form. Neither square nor round, its use in all matters is truly wondrous. Neither high nor low, it sits in the very center. Bending down, it reflects Hoan Kiem Lake; looking up, it gazes at the stone Pen Tower; corresponding to the Thai constellation, it brings forth all transformations. Holding primordial energy, it grinds the void.\n\nCurrently, there is a song about the Pen Tower, titled \"Nghiên Bút Non Sông\" composed by Đình Dương.\n\nThe Pen Tower stands on a small mound on the northeastern side of Hoan Kiem Lake, distinguished by its graceful and ancient appearance. The structure is made of stone and consists of several tiers that gradually narrow toward the top, creating the impression of a pen reaching upward as if writing in the sky. At the top of the tower is a pen-shaped tip pointing straight upward, symbolizing the spirit of learning and the literary tradition of the Vietnamese people. At the base of the tower, the three Chinese characters “Ta Thanh Thien” are engraved, meaning “to write on the blue sky,” which further enhances its symbolic significance.\n\nSurrounding the tower is the calm water of the lake, reflecting the image of the structure on its clear surface. Rows of green trees provide shade and create a harmonious setting between nature and architecture. As the light changes throughout the day, the Pen Tower takes on different moods, appearing radiant under sunlight and contemplative at dusk, contributing to the unique beauty of Hoan Kiem Lake."
+        }
+      ]
+    },
+    {
+      "video_id": "6a09603954cac746d34c202f",
+      "filename": "NhaKhachChinhPhu_S_T04.MOV",
+      "duration": 31.445,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 31.445,
+          "landmark_name": "The Government Guest House",
+          "kb_id": "the_government_guest_house",
+          "gt_node_id": "",
+          "reference_caption": "A two-story building with a pale yellow facade, distinguished by its classical and solemn architecture, reminiscent of Nhà Khách Chính Phủ on Lê Thạch street, Hanoi. The upper floor features a row of tall, narrow windows with dark frames and small panes, while the lower floor has larger, arched windows with similar frames. Elaborate decorative elements such as cornices and a small arched window near the top, along with a flat roof with a slight overhang, create a majestic and elegant appearance. This edifice, originally Bắc Bộ Phủ during the French colonial period, was not only an important administrative center but also a symbol of power after the August Revolution, carrying deep historical layers of the thousand-year-old capital of civilization. Although not a public tourist attraction, its majestic and discreet appearance remains an indispensable part, contributing to the unique \"chất Hà Nội\" where history and solemnity intertwine.",
+          "kb_description": "Located on the quiet Le Thach Street, just steps away from Hoan Kiem Lake, Government Guest House stands as a building that is both dignified and discreet, a place not everyone can enter, yet one that leaves a strong impression on anyone passing by. Originally constructed during the French colonial period as the Tonkin Palace (Bac Bo Phu), it once served as a key administrative center and was closely tied to major moments in modern Vietnamese history. In particular, after the August Revolution, it became a symbol of the new government’s authority, marking a turning point for the nation. Today, although it is not a typical tourist attraction, the surrounding area carries its own quiet rhythm. Locals stroll nearby, visitors pause to take photos from a distance, and from time to time, diplomatic vehicles pass through its gates. There is no loud activity here, yet this very stillness creates a rare sense of formality. Standing before the gate, one often feels as if facing a living piece of history, where important decisions were once made. As you leave, what lingers is not familiarity, but a deep impression of dignity, as though you have briefly touched a solemn layer of Hanoi’s past.\n\nThe building features a grand, symmetrical structure with a tall central block and a distinctive red-tiled roof. Its pale yellow walls combined with white decorative details create a classic appearance. The most recognizable feature is the large iron gate and the spacious courtyard in front. Surrounding it are green trees, quiet streets, and an open setting near the lake, giving the scene a formal yet airy atmosphere."
+        }
+      ]
+    },
+    {
+      "video_id": "6a09603c54cac746d34c2034",
+      "filename": "NhaKhachChinhPhu_S_T09.MOV",
+      "duration": 31.657,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 31.657,
+          "landmark_name": "The Government Guest House",
+          "kb_id": "the_government_guest_house",
+          "gt_node_id": "",
+          "reference_caption": "The building features a grand classical architectural style, with a prominent central block flanked by two wing blocks. The central block has a pediment with a decorative frieze and a round emblem in the center, creating a majestic appearance. The facade is adorned with rectangular windows, each surrounded by elaborate moldings. The building's exterior is painted light yellow, an identifying feature of the Government Guest House (formerly Bắc Bộ Phủ). This historical building is located on the quiet Lê Thạch street, right near Hoan Kiem Lake, and once served as an important administrative center and a symbol of power after the August Revolution, representing the interplay between ancient history and Hanoi's significant milestones.",
+          "kb_description": "Located on the quiet Le Thach Street, just steps away from Hoan Kiem Lake, Government Guest House stands as a building that is both dignified and discreet, a place not everyone can enter, yet one that leaves a strong impression on anyone passing by. Originally constructed during the French colonial period as the Tonkin Palace (Bac Bo Phu), it once served as a key administrative center and was closely tied to major moments in modern Vietnamese history. In particular, after the August Revolution, it became a symbol of the new government’s authority, marking a turning point for the nation. Today, although it is not a typical tourist attraction, the surrounding area carries its own quiet rhythm. Locals stroll nearby, visitors pause to take photos from a distance, and from time to time, diplomatic vehicles pass through its gates. There is no loud activity here, yet this very stillness creates a rare sense of formality. Standing before the gate, one often feels as if facing a living piece of history, where important decisions were once made. As you leave, what lingers is not familiarity, but a deep impression of dignity, as though you have briefly touched a solemn layer of Hanoi’s past.\n\nThe building features a grand, symmetrical structure with a tall central block and a distinctive red-tiled roof. Its pale yellow walls combined with white decorative details create a classic appearance. The most recognizable feature is the large iron gate and the spacious courtyard in front. Surrounding it are green trees, quiet streets, and an open setting near the lake, giving the scene a formal yet airy atmosphere."
+        }
+      ]
+    },
+    {
+      "video_id": "69e903f90a741c710173185a",
+      "filename": "NhaKhachChinhPhu_S_T02.MOV",
+      "duration": 32.704,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 32.704,
+          "landmark_name": "The Government Guest House",
+          "kb_id": "the_government_guest_house",
+          "gt_node_id": "",
+          "reference_caption": "This two-story building with a prominent yellow facade is the Government Guest House, also known as the historic Bắc Bộ Phủ, located on quiet Lê Thạch Street, near Hanoi's Hoan Kiem Lake. This majestic and elegant structure was built during the French colonial period, once served as an important administrative center and a symbol of power after the August Revolution. The upper floor of the building features an impressive triangular pediment in the center, with a decorative emblem above, and three large, dark-framed rectangular windows below. The lower floor has two large, dark-framed rectangular windows symmetrically placed on either side of the central entrance. The entrance is surrounded by a dark archway with a decorative keystone, creating a solemn appearance. The building has a flat roof with a small square structure on top, contributing to a quiet, dignified atmosphere, like a living piece of history in the heart of the capital.",
+          "kb_description": "Located on the quiet Le Thach Street, just steps away from Hoan Kiem Lake, Government Guest House stands as a building that is both dignified and discreet, a place not everyone can enter, yet one that leaves a strong impression on anyone passing by. Originally constructed during the French colonial period as the Tonkin Palace (Bac Bo Phu), it once served as a key administrative center and was closely tied to major moments in modern Vietnamese history. In particular, after the August Revolution, it became a symbol of the new government’s authority, marking a turning point for the nation. Today, although it is not a typical tourist attraction, the surrounding area carries its own quiet rhythm. Locals stroll nearby, visitors pause to take photos from a distance, and from time to time, diplomatic vehicles pass through its gates. There is no loud activity here, yet this very stillness creates a rare sense of formality. Standing before the gate, one often feels as if facing a living piece of history, where important decisions were once made. As you leave, what lingers is not familiarity, but a deep impression of dignity, as though you have briefly touched a solemn layer of Hanoi’s past.\n\nThe building features a grand, symmetrical structure with a tall central block and a distinctive red-tiled roof. Its pale yellow walls combined with white decorative details create a classic appearance. The most recognizable feature is the large iron gate and the spacious courtyard in front. Surrounding it are green trees, quiet streets, and an open setting near the lake, giving the scene a formal yet airy atmosphere."
+        }
+      ]
+    },
+    {
+      "video_id": "6a0b41448b51ec946b423957",
+      "filename": "A1_018_DenNgocSonToanCanh_M_T02.mp4",
+      "duration": 95.066667,
+      "gt_segments": [
+        {
+          "start_time": 47.051111,
+          "end_time": 73.022222,
+          "landmark_name": "The Huc Bridge",
+          "kb_id": "the_huc_bridge",
+          "gt_node_id": "",
+          "reference_caption": "Stretching like a prominent red silk ribbon over the green waters of Hoan Kiem Lake, the wooden bridge in the video is The Huc Bridge – \"the place where the morning sunlight is welcomed\" and a distinctive architectural symbol of Hanoi. It is a long, narrow walkway with evenly spaced planks, leading from the lakeside to Ngoc Son Temple. The vibrant red metal railings on both sides of the bridge are traditionally designed with intricate patterns, including a series of vertical bars and a horizontal bar above, reflecting East Asian aesthetic philosophy. The bridge appears to be elevated and supported by vertical pillars at regular intervals. The red color of the bridge not only creates a visual impression but also symbolizes luck and happiness, creating a scene that is both ancient and poetic, romantic for the thousand-year-old capital of civilization.",
+          "kb_description": "Cầu Thê Húc, a name meaning \"the place to welcome early morning sunlight,\" is one of Hanoi's distinctive architectural symbols and is closely associated with the Hồ Hoàn Kiếm historical site complex. The bridge was built in the 19th century, during the Nguyễn Dynasty, alongside the renovation and completion of Đền Ngọc Sơn, to create a pathway connecting the mainland and the island where the temple is located.\n\nMore than just a transportation structure, Cầu Thê Húc also carries profound cultural significance, embodying East Asian aesthetic philosophy with its harmony between humans and nature. The bridge's red color symbolizes luck and happiness, while its gentle curve seems to invite and guide visitors into the temple's sacred space.\n\nHaving endured many historical upheavals, the bridge has been renovated multiple times to preserve its inherent beauty, and to this day, it remains an indispensable part of the spiritual life of Hanoians. Especially during major holidays like Tết Nguyên Đán, it becomes a bustling check-in and pilgrimage spot, contributing to the lively festive atmosphere around the lake.\n\nInterestingly, Cầu Thê Húc is not only famous domestically but also appears in numerous photographs, paintings, and works of art about Hanoi, becoming a representative image of the capital's traditional yet romantic beauty. When you step onto this bridge, you are not just crossing an architectural structure, but also entering a living symbol of Vietnamese memory and culture.\n\nArching gracefully like a red silk ribbon standing out on the green water of Hồ Hoàn Kiếm, Cầu Thê Húc makes an impression right from the first glance with its vibrant bright red color and soft curved shape. The wooden bridge, with its slender railings, leads the way from the lakeside to Đền Ngọc Sơn, creating a scene that is both ancient and poetic. In the morning, the bridge seems to glow in the gentle dawn light, and when night falls, the reflected lights make the bridge shimmer, almost magical in the heart of Hà Nội."
+        }
+      ]
+    },
+    {
+      "video_id": "6a0b41448b51ec946b423957",
+      "filename": "A1_018_DenNgocSonToanCanh_M_T02.mp4",
+      "duration": 95.066667,
+      "gt_segments": [
+        {
+          "start_time": 89.211111,
+          "end_time": 95.066667,
+          "landmark_name": "Tran Ba Communal House",
+          "kb_id": "tran_ba_communal_house",
+          "gt_node_id": "",
+          "reference_caption": "The frame displays a part of Đình Trấn Ba, a typical traditional architectural work located at the end of Thê Húc Bridge, just before entering Đền Ngọc Sơn at Hồ Hoàn Kiếm. Prominently featured is the roof with eight soaring curved eaves, elaborately decorated with intricate patterns and circular motifs, along with a colorful, patterned section beneath the eaves. The roof is supported by sturdy, dark-colored pillars, creating an ancient, stable appearance. Đình Trấn Ba is built on a high foundation, harmonizing architecture and the water surface of Hồ Gươm, bearing the symbolic meaning of a place that \"guards the waters\", creating balance and stability for the lake area.",
+          "kb_description": "To the South is Trấn Ba Pavilion (wave-blocking pavilion - implying a pillar standing firm amidst unhealthy waves in contemporary culture). The pavilion is square-shaped with eight roofs, the two-tiered roof is supported by 8 columns, four outer columns are made of stone, four inner columns are made of wood. The columns inside the pavilion have a pair of parallel couplets:\n\nKiếm hữu dư linh quang nhược thủy\nVăn tòng đại khối thọ như sơn\nHán characters:\n\n劍 有 餘 靈 光 若 水\n文 從 大 塊 壽 如 山\nMeaning:\n\nThe sword's lingering spiritual essence shines like water\nLiterature/Culture endures with heaven and earth, lasting like mountains.\nThe figures worshipped in the temple, besides Văn Xương Đế Quân, Lã Động Tân, Quan Vân Trường, Hưng Đạo Vương, also include Amitābha Buddha. This demonstrates the Vietnamese concept of Tam giáo đồng nguyên.\n\nAlthough it is a temple of new architecture, Ngọc Sơn Temple is a prime example of architectural space and creation. The combination of the temple and the lake has created an architectural whole of Thiên - Nhân hợp nhất, creating an ancient, harmonious, and balanced beauty for the temple and the lake, evoking feelings of profound harmony between humans and nature.\n\nTran Ba Pavilion is located at the end of The Huc Bridge, just before entering Ngoc Son Temple, appearing as an open space that harmoniously connects architecture with the waters of Hoan Kiem Lake. The structure stands on an elevated platform, featuring eight curved roofs that extend outward in different directions, creating a sense of lightness and elegance. Solid stone pillars support the roof, and every detail reflects a simple yet refined traditional Vietnamese architectural style.\n\nSurrounding the pavilion is an open space where the calm surface of the lake quietly reflects the image of the structure and the sky above. Natural light passes through the gaps between the stone pillars, forming interwoven patterns of light and shadow that enhance the depth of the space. Standing here, one can clearly feel a sense of tranquility and calm, as if separated from the bustle of the surrounding streets.\n\nTran Ba Pavilion is not only an architectural work but also holds symbolic meaning, regarded as a place that “stabilizes the waves,” contributing to the balance and harmony of the lake area. The combination of its location, form, and surrounding space makes it a distinctive highlight within the overall landscape of Ngoc Son Temple."
+        }
+      ]
+    },
+    {
+      "video_id": "69e903810a741c710173184e",
+      "filename": "B03_CVConCoc_S_T03.MOV",
+      "duration": 31.445,
+      "gt_segments": [
+        {
+          "start_time": 26.103259,
+          "end_time": 31.445,
+          "landmark_name": "Dien Hong Park",
+          "kb_id": "dien_hong_park",
+          "gt_node_id": "",
+          "reference_caption": "At Vườn hoa Con Cóc, a small corner deeply imbued with the breath of Hanoi's memories near the Nhà hát Lớn, a central monument stands out. The monument is a tall, slender column with a smooth, light-colored surface, bearing intricate carvings and decorations, including a series of vertical flutes and elaborate patterns. The base of the monument is adorned with a detailed sculpted bas-relief depicting figures, possibly portraying historical or mythological scenes. The top of the monument is crowned with a decorative element which appears to be a statue or figurine. This is part of a fountain that once served as a European-style urban focal point in Diên Hồng Square, built by the French in the early 20th century. Along with the surrounding stone toad statues (which give rise to the familiar name \"Vườn hoa Con Cóc\"), this monument contributes to creating a serene respite, a vivid page of memory in the heart of the thousand-year-old capital of culture.",
+          "kb_description": "Amid the bustling streets near Hanoi Opera House, Toad Flower Garden appears as a small corner filled with the city’s quiet memories. Few people realize that this place was once Dien Hong Square, built by the French in the early 20th century with a fountain at its center, serving as a European-style urban highlight in Hanoi. The name “Toad Garden” comes from the stone toad statues surrounding the fountain, echoing a familiar image in Vietnamese folklore, where the toad is believed to summon rain, symbolizing life and hope. Over time, this simple and charming name has become far more familiar than its official one. Today, the garden is not only a resting spot for passersby but also a rare pause in the city’s fast rhythm. Locals sit on stone benches, chatting or reading, while visitors stop to take photos, amused by the small toads that seem to step out of a folk tale. There are no grand festivals or noisy events here, yet its simplicity is exactly what gives the place its unique charm, like a living page of Hanoi’s memory. When leaving, people often carry with them a sense of familiarity, as if they had just visited a place that has quietly existed alongside the city for generations.\n\nThe garden is compact, arranged in a circular layout with a stone fountain at the center. The dominant tones are the aged gray of stone and the green of surrounding trees. The most distinctive feature is the ring of small toad statues facing inward toward the water. Around it are stone benches, low fences, and busy streets, framed by old buildings and leafy trees."
+        }
+      ]
+    },
+    {
+      "video_id": "69e903fb0a741c710173185b",
+      "filename": "NhaKhachChinhPhu_M_T01.MOV",
+      "duration": 91.817,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 91.711671,
+          "landmark_name": "The Government Guest House",
+          "kb_id": "the_government_guest_house",
+          "gt_node_id": "",
+          "reference_caption": "This frame shows a grand building with a distinctive light yellow facade, adorned with many dark-framed rectangular windows, evoking a classic and solemn appearance. Red vertical elements, possibly flags or banners, are attached to the wall, further enhancing the majestic atmosphere. Based on the architecture and identifying features, this could be the Government Guesthouse (formerly Bắc Bộ Phủ) on Lê Thạch Street, Hanoi. This building, originally built during the French colonial period, is not only an important historical symbol associated with many major national events but also a place bearing the strong imprint of power and rare tranquility in the heart of the capital. A part of the structure is obscured by lush green foliage, creating a scene that is both solemn and harmonious with the fresh green space near Hoan Kiem Lake.",
+          "kb_description": "Located on the quiet Le Thach Street, just steps away from Hoan Kiem Lake, Government Guest House stands as a building that is both dignified and discreet, a place not everyone can enter, yet one that leaves a strong impression on anyone passing by. Originally constructed during the French colonial period as the Tonkin Palace (Bac Bo Phu), it once served as a key administrative center and was closely tied to major moments in modern Vietnamese history. In particular, after the August Revolution, it became a symbol of the new government’s authority, marking a turning point for the nation. Today, although it is not a typical tourist attraction, the surrounding area carries its own quiet rhythm. Locals stroll nearby, visitors pause to take photos from a distance, and from time to time, diplomatic vehicles pass through its gates. There is no loud activity here, yet this very stillness creates a rare sense of formality. Standing before the gate, one often feels as if facing a living piece of history, where important decisions were once made. As you leave, what lingers is not familiarity, but a deep impression of dignity, as though you have briefly touched a solemn layer of Hanoi’s past.\n\nThe building features a grand, symmetrical structure with a tall central block and a distinctive red-tiled roof. Its pale yellow walls combined with white decorative details create a classic appearance. The most recognizable feature is the large iron gate and the spacious courtyard in front. Surrounding it are green trees, quiet streets, and an open setting near the lake, giving the scene a formal yet airy atmosphere."
+        }
+      ]
+    },
+    {
+      "video_id": "6a09603b54cac746d34c2032",
+      "filename": "NhaKhachChinhPhu_S_T07.MOV",
+      "duration": 36.884,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 36.884,
+          "landmark_name": "The Government Guest House",
+          "kb_id": "the_government_guest_house",
+          "gt_node_id": "",
+          "reference_caption": "Located on the quiet Lê Thạch street, near Hoan Kiem Lake, the Government Guesthouse appears with a majestic and elegant demeanor in its grand classical architecture. The building is painted in a characteristic light yellow, highlighted by a central section featuring a triangular pediment, exquisitely decorated frieze, and a round window at its center, with two symmetrical wings extending to either side. The facade is adorned with vertical pilasters and rectangular windows with dark frames, along with a large sloping roof featuring small, elaborately decorated dormer windows, all contributing to a solemn, ancient overall appearance. Originally the historic Bắc Bộ Phủ, once an important administrative center and a symbol of power after the August Revolution, this edifice still retains its complete tranquility, like a living piece of history and a special sediment of Hanoi.",
+          "kb_description": "Located on the quiet Le Thach Street, just steps away from Hoan Kiem Lake, Government Guest House stands as a building that is both dignified and discreet, a place not everyone can enter, yet one that leaves a strong impression on anyone passing by. Originally constructed during the French colonial period as the Tonkin Palace (Bac Bo Phu), it once served as a key administrative center and was closely tied to major moments in modern Vietnamese history. In particular, after the August Revolution, it became a symbol of the new government’s authority, marking a turning point for the nation. Today, although it is not a typical tourist attraction, the surrounding area carries its own quiet rhythm. Locals stroll nearby, visitors pause to take photos from a distance, and from time to time, diplomatic vehicles pass through its gates. There is no loud activity here, yet this very stillness creates a rare sense of formality. Standing before the gate, one often feels as if facing a living piece of history, where important decisions were once made. As you leave, what lingers is not familiarity, but a deep impression of dignity, as though you have briefly touched a solemn layer of Hanoi’s past.\n\nThe building features a grand, symmetrical structure with a tall central block and a distinctive red-tiled roof. Its pale yellow walls combined with white decorative details create a classic appearance. The most recognizable feature is the large iron gate and the spacious courtyard in front. Surrounding it are green trees, quiet streets, and an open setting near the lake, giving the scene a formal yet airy atmosphere."
+        }
+      ]
+    },
+    {
+      "video_id": "69e903820a741c710173184f",
+      "filename": "B03_CVConCoc_S_T02.MOV",
+      "duration": 32.318,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 32.318,
+          "landmark_name": "Dien Hong Park",
+          "kb_id": "dien_hong_park",
+          "gt_node_id": "",
+          "reference_caption": "The video depicts an impressive architectural work, which is the ancient fountain at Con Coc Flower Garden – a small corner imbued with the breath of memory and peace amidst the bustling heart of Hanoi. At the center of the fountain is a tall, slender column with a smooth, light-colored surface, rising gracefully. Atop the column is a decorative capital with intricate carvings, reminiscent of European architecture that the French built in the early 20th century, transforming this place into what was once Dien Hong Square. The base of the fountain is round, elevated with smooth, rounded edges, elaborately decorated with a series of detailed statues. Prominently, a figure sits on a pedestal, surrounded by smaller figures in various poses, all made from dark materials such as stone or metal, creating a striking contrast with the light color of the column. It is these stone toad statues placed around the fountain that gave rise to the familiar name \"Con Coc Flower Garden,\" associated with the image of the rain-calling mascot in Vietnamese folklore. This place is not only a unique architectural highlight but also a rare quiet space where locals and tourists can \"slow down\" amidst the bustling pace of the thousand-year-old capital of culture.",
+          "kb_description": "Amid the bustling streets near Hanoi Opera House, Toad Flower Garden appears as a small corner filled with the city’s quiet memories. Few people realize that this place was once Dien Hong Square, built by the French in the early 20th century with a fountain at its center, serving as a European-style urban highlight in Hanoi. The name “Toad Garden” comes from the stone toad statues surrounding the fountain, echoing a familiar image in Vietnamese folklore, where the toad is believed to summon rain, symbolizing life and hope. Over time, this simple and charming name has become far more familiar than its official one. Today, the garden is not only a resting spot for passersby but also a rare pause in the city’s fast rhythm. Locals sit on stone benches, chatting or reading, while visitors stop to take photos, amused by the small toads that seem to step out of a folk tale. There are no grand festivals or noisy events here, yet its simplicity is exactly what gives the place its unique charm, like a living page of Hanoi’s memory. When leaving, people often carry with them a sense of familiarity, as if they had just visited a place that has quietly existed alongside the city for generations.\n\nThe garden is compact, arranged in a circular layout with a stone fountain at the center. The dominant tones are the aged gray of stone and the green of surrounding trees. The most distinctive feature is the ring of small toad statues facing inward toward the water. Around it are stone benches, low fences, and busy streets, framed by old buildings and leafy trees."
+        }
+      ]
+    },
+    {
+      "video_id": "69e9028f0a741c7101731834",
+      "filename": "NhaThoLon_S_T011.MOV",
+      "duration": 34.133333,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 9.634027,
+          "landmark_name": "Hanoi Cathedral",
+          "kb_id": "hanoi_cathedral",
+          "gt_node_id": "",
+          "reference_caption": "In the heart of Hanoi's bustling Old Quarter, Hanoi Cathedral stands out with its ancient Gothic architectural beauty, inspired by Notre Dame de Paris. The structure features a symmetrical facade, adorned with intricate stone details: from pointed arches, tracery, to a large rose window with a golden cross at its center. Two soaring, slender spires flank the main entrance, along with two smaller symmetrical towers, creating a characteristic vertical emphasis. The entire exterior bears an ancient moss-gray hue, covered with the marks of time, and a prominent feature is the large clock situated in the middle of the facade above the main gate. Located on Nha Chung Street near Hoan Kiem Lake, Hanoi Cathedral is not only an important cathedral but also an architectural icon, offering a solemn, peaceful respite amidst the bustling pace of the capital.",
+          "kb_description": "Amidst Hanoi's bustling Old Quarter, Hanoi Grand Cathedral appears as an ancient European corner that has stood silently in the heart of the city for over a century. The structure is located on Nha Chung Street, near Hoan Kiem Lake, with two soaring bell towers becoming a familiar landmark for the capital's residents. The cathedral was built in the late 19th century in the Gothic style, inspired by Notre Dame Cathedral in Paris, on the site that once belonged to Bao Thien Pagoda in ancient times. The name \"Grand Cathedral\" is not only due to its prominent scale but also because it is the most important cathedral of the Archdiocese of Hanoi.\n\nEvery early morning or late afternoon, the square in front of the cathedral is always filled with the laughter and chatter of tourists, street vendors, and groups of young people sitting at cafes watching people pass by. During Christmas, the place glows brightly with lights, and hymns echo in the winter weather, giving the entire neighborhood a beauty that is both sacred and intimately familiar.\n\nWhat lingers after each visit is not just the ancient beauty of the gray stone walls, but also a special sense of peace, as if amidst the bustling pace of Hanoi life, there still exists a tranquil silence of time.\n\nThe Grand Cathedral stands out with its symmetrical facade, two tall bell towers, and characteristic Gothic arched windows. The entire structure bears an ancient moss-gray hue, its stone wall surfaces covered with the marks of time. The most recognizable feature is the large clock located in the middle of the facade above the main gate. Surrounding it are often a small, crowded square, green trees, coffee shops, and the bustling old streets of downtown Hanoi."
+        }
+      ]
+    },
+    {
+      "video_id": "69e903800a741c710173184d",
+      "filename": "B03_CVConCoc_S_T05.MOV",
+      "duration": 45.566667,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 2.704363,
+          "landmark_name": "Dien Hong Park",
+          "kb_id": "dien_hong_park",
+          "gt_node_id": "",
+          "reference_caption": "In the frame is a part of the central fountain at Toad Flower Garden, a tall and slender structure bearing the distinct mark of classical European architecture. The rectangular base transitions into a narrower column, elaborately decorated with elements such as columns and moldings, reminiscent of the period when the French built this place in the early 20th century. The column itself is smooth and gently tapers as it rises, although the very top of the fountain is not visible. This structure is the highlight of the former Diên Hồng square, where stone toad statues gave the garden its familiar name, transforming it into a simple yet vibrant corner of memory in the heart of Hanoi.",
+          "kb_description": "Amid the bustling streets near Hanoi Opera House, Toad Flower Garden appears as a small corner filled with the city’s quiet memories. Few people realize that this place was once Dien Hong Square, built by the French in the early 20th century with a fountain at its center, serving as a European-style urban highlight in Hanoi. The name “Toad Garden” comes from the stone toad statues surrounding the fountain, echoing a familiar image in Vietnamese folklore, where the toad is believed to summon rain, symbolizing life and hope. Over time, this simple and charming name has become far more familiar than its official one. Today, the garden is not only a resting spot for passersby but also a rare pause in the city’s fast rhythm. Locals sit on stone benches, chatting or reading, while visitors stop to take photos, amused by the small toads that seem to step out of a folk tale. There are no grand festivals or noisy events here, yet its simplicity is exactly what gives the place its unique charm, like a living page of Hanoi’s memory. When leaving, people often carry with them a sense of familiarity, as if they had just visited a place that has quietly existed alongside the city for generations.\n\nThe garden is compact, arranged in a circular layout with a stone fountain at the center. The dominant tones are the aged gray of stone and the green of surrounding trees. The most distinctive feature is the ring of small toad statues facing inward toward the water. Around it are stone benches, low fences, and busy streets, framed by old buildings and leafy trees."
+        }
+      ]
+    },
+    {
+      "video_id": "6a09604554cac746d34c2037",
+      "filename": "B03_CVConCoc_S_T07.MOV",
+      "duration": 31.445,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 31.445,
+          "landmark_name": "Dien Hong Park",
+          "kb_id": "dien_hong_park",
+          "gt_node_id": "",
+          "reference_caption": "The monument is a tall, rectangular structure in a classical architectural style, featuring a series of vertical columns and elaborate decorative elements. Made from light-colored stone, the structure exudes grandeur and antiquity. The base is elaborately carved with statues placed at the corners, while the top of the monument is a protruding flat roof, with a small square structure on top. This structure is reminiscent of the central fountain at Vườn hoa Con Cóc – a European-style urban landmark built by the French in the early 20th century in Hanoi. The statues at the base of the monument might be images of stone toads, rain-calling mascots, which gave this historic garden its familiar name, a vivid corner of memory in the heart of the thousand-year-old civilized capital.",
+          "kb_description": "Amid the bustling streets near Hanoi Opera House, Toad Flower Garden appears as a small corner filled with the city’s quiet memories. Few people realize that this place was once Dien Hong Square, built by the French in the early 20th century with a fountain at its center, serving as a European-style urban highlight in Hanoi. The name “Toad Garden” comes from the stone toad statues surrounding the fountain, echoing a familiar image in Vietnamese folklore, where the toad is believed to summon rain, symbolizing life and hope. Over time, this simple and charming name has become far more familiar than its official one. Today, the garden is not only a resting spot for passersby but also a rare pause in the city’s fast rhythm. Locals sit on stone benches, chatting or reading, while visitors stop to take photos, amused by the small toads that seem to step out of a folk tale. There are no grand festivals or noisy events here, yet its simplicity is exactly what gives the place its unique charm, like a living page of Hanoi’s memory. When leaving, people often carry with them a sense of familiarity, as if they had just visited a place that has quietly existed alongside the city for generations.\n\nThe garden is compact, arranged in a circular layout with a stone fountain at the center. The dominant tones are the aged gray of stone and the green of surrounding trees. The most distinctive feature is the ring of small toad statues facing inward toward the water. Around it are stone benches, low fences, and busy streets, framed by old buildings and leafy trees."
+        }
+      ]
+    },
+    {
+      "video_id": "69e903800a741c710173184d",
+      "filename": "B03_CVConCoc_S_T05.MOV",
+      "duration": 45.566667,
+      "gt_segments": [
+        {
+          "start_time": 8.340327,
+          "end_time": 45.566667,
+          "landmark_name": "Dien Hong Park",
+          "kb_id": "dien_hong_park",
+          "gt_node_id": "",
+          "reference_caption": "In the heart of Hanoi's historic Vườn hoa Con Cóc, a central fountain structure stands out, featuring a classical European architectural style, built in the early 20th century. The fountain has a tall, slender shape with a smooth, light-colored surface. The body of the fountain is adorned with a series of evenly spaced vertical rectangular panels, creating an intricate ribbed texture along its height. The base of the fountain is wider, designed with multiple rounded tiers and a smooth finished surface, evoking a sense of solidity. The top of the fountain is embellished with a small, elaborate decorative element. Notably, surrounding the fountain are stone toad statues, familiar rain-calling mascots, which have given this garden its popular and intimate name.",
+          "kb_description": "Amid the bustling streets near Hanoi Opera House, Toad Flower Garden appears as a small corner filled with the city’s quiet memories. Few people realize that this place was once Dien Hong Square, built by the French in the early 20th century with a fountain at its center, serving as a European-style urban highlight in Hanoi. The name “Toad Garden” comes from the stone toad statues surrounding the fountain, echoing a familiar image in Vietnamese folklore, where the toad is believed to summon rain, symbolizing life and hope. Over time, this simple and charming name has become far more familiar than its official one. Today, the garden is not only a resting spot for passersby but also a rare pause in the city’s fast rhythm. Locals sit on stone benches, chatting or reading, while visitors stop to take photos, amused by the small toads that seem to step out of a folk tale. There are no grand festivals or noisy events here, yet its simplicity is exactly what gives the place its unique charm, like a living page of Hanoi’s memory. When leaving, people often carry with them a sense of familiarity, as if they had just visited a place that has quietly existed alongside the city for generations.\n\nThe garden is compact, arranged in a circular layout with a stone fountain at the center. The dominant tones are the aged gray of stone and the green of surrounding trees. The most distinctive feature is the ring of small toad statues facing inward toward the water. Around it are stone benches, low fences, and busy streets, framed by old buildings and leafy trees."
+        }
+      ]
+    },
+    {
+      "video_id": "6a09603954cac746d34c202e",
+      "filename": "NhaKhachChinhPhu_S_T03.MOV",
+      "duration": 31.402,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 31.402,
+          "landmark_name": "The Government Guest House",
+          "kb_id": "the_government_guest_house",
+          "gt_node_id": "",
+          "reference_caption": "Located on quiet Lê Thạch street, right near Hoàn Kiếm Lake, the Government Guesthouse appears with a majestic and elegant look. This grand building stands out with its distinctive yellow facade, along with a triangular pediment in the center supported by sturdy columns. Above the pediment, a flagpole with a fluttering flag further adds to its solemnity. The building has many windows with dark frames and a dark roof with a slight overhang, creating an overall look that is both classical and dignified. Originally Bắc Bộ Phủ during the French colonial period, this place was once an important administrative center, associated with many historical events, especially after the August Revolution, becoming a symbol of power for the new government. Although not a popular tourist attraction, the Government Guesthouse remains a vibrant part of history, bearing the distinctive historical imprint of Hanoi.",
+          "kb_description": "Located on the quiet Le Thach Street, just steps away from Hoan Kiem Lake, Government Guest House stands as a building that is both dignified and discreet, a place not everyone can enter, yet one that leaves a strong impression on anyone passing by. Originally constructed during the French colonial period as the Tonkin Palace (Bac Bo Phu), it once served as a key administrative center and was closely tied to major moments in modern Vietnamese history. In particular, after the August Revolution, it became a symbol of the new government’s authority, marking a turning point for the nation. Today, although it is not a typical tourist attraction, the surrounding area carries its own quiet rhythm. Locals stroll nearby, visitors pause to take photos from a distance, and from time to time, diplomatic vehicles pass through its gates. There is no loud activity here, yet this very stillness creates a rare sense of formality. Standing before the gate, one often feels as if facing a living piece of history, where important decisions were once made. As you leave, what lingers is not familiarity, but a deep impression of dignity, as though you have briefly touched a solemn layer of Hanoi’s past.\n\nThe building features a grand, symmetrical structure with a tall central block and a distinctive red-tiled roof. Its pale yellow walls combined with white decorative details create a classic appearance. The most recognizable feature is the large iron gate and the spacious courtyard in front. Surrounding it are green trees, quiet streets, and an open setting near the lake, giving the scene a formal yet airy atmosphere."
+        }
+      ]
+    },
+    {
+      "video_id": "69e9036d0a741c710173184c",
+      "filename": "B03_CVConCoc_M_T04.MOV",
+      "duration": 95.381,
+      "gt_segments": [
+        {
+          "start_time": 0,
+          "end_time": 95.381,
+          "landmark_name": "Dien Hong Park",
+          "kb_id": "dien_hong_park",
+          "gt_node_id": "",
+          "reference_caption": "Standing out in the historic Con Cóc Flower Garden, near the Hanoi Opera House, is a tall and slender stone fountain, bearing the strong imprint of early 20th-century French architecture. Its sturdy rectangular base is intricately carved, featuring a multi-tiered pedestal and characteristic stone toad statues with mouths facing inwards, reminiscent of the rain-calling mascot in Vietnamese folklore. The fountain's body rises high, decorated with intricate bas-reliefs and a prominent central feature. At the top, the structure is adorned with delicate decorative details resembling a crown or a laurel wreath, creating an ancient and solemn beauty, a vivid page of memory in the heart of the thousand-year-old capital of civilization.",
+          "kb_description": "Amid the bustling streets near Hanoi Opera House, Toad Flower Garden appears as a small corner filled with the city’s quiet memories. Few people realize that this place was once Dien Hong Square, built by the French in the early 20th century with a fountain at its center, serving as a European-style urban highlight in Hanoi. The name “Toad Garden” comes from the stone toad statues surrounding the fountain, echoing a familiar image in Vietnamese folklore, where the toad is believed to summon rain, symbolizing life and hope. Over time, this simple and charming name has become far more familiar than its official one. Today, the garden is not only a resting spot for passersby but also a rare pause in the city’s fast rhythm. Locals sit on stone benches, chatting or reading, while visitors stop to take photos, amused by the small toads that seem to step out of a folk tale. There are no grand festivals or noisy events here, yet its simplicity is exactly what gives the place its unique charm, like a living page of Hanoi’s memory. When leaving, people often carry with them a sense of familiarity, as if they had just visited a place that has quietly existed alongside the city for generations.\n\nThe garden is compact, arranged in a circular layout with a stone fountain at the center. The dominant tones are the aged gray of stone and the green of surrounding trees. The most distinctive feature is the ring of small toad statues facing inward toward the water. Around it are stone benches, low fences, and busy streets, framed by old buildings and leafy trees."
+        }
+      ]
+    }
+  ],
+  "out_of_kb": []
+}

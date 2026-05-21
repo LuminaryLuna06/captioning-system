@@ -167,7 +167,7 @@ def main():
     Path(args.output).write_text(
         json.dumps(scored, indent=2, ensure_ascii=False), encoding="utf-8"
     )
-    print(f"Saved {len(scored)} scores → {args.output}")
+    print(f"Saved {len(scored)} scores -> {args.output}")
 
 
 if __name__ == "__main__":

@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "PowerShell($py = \"D:\\\\Jupiter\\\\luna_env\\\\Scripts\\\\python.exe\"; & $py -m pip install \"transformers==4.51.3\" 2>&1 | Select-Object -Last 15)",
-      "Bash(\"D:/Jupiter/luna_env/Scripts/python.exe\" -m py_compile hanoi_caption/pipeline.py hanoi_caption/image_describer.py)",
-      "Bash(\"D:/Jupiter/luna_env/Scripts/python.exe\" -c \"import sys; sys.path.insert\\(0, '.'\\); from hanoi_caption.pipeline import caption_phase2; from hanoi_caption.image_describer import HF_ID, MODEL_NAME; print\\(f'import OK; VLM={MODEL_NAME} -> {HF_ID}'\\)\")"
-    ]
-  }
-}

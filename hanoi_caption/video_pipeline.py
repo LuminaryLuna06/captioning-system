@@ -197,13 +197,17 @@ def pick_frame_indices(*, segment_seconds: float, available_indices: list[int],
 
 DAM_VIDEO_CAPTION_BODY = (
     "These frames are sampled from a short video clip showing {name}.\n\n"
-    "Historical and cultural context:\n{description}\n\n"
-    "Notable visual features that may be present: {visual_cues}\n\n"
-    "Write ONE warm, observant tour-guide paragraph (150 to 300 words, English) "
-    "describing what is visible across these frames and weaving in the historical "
-    "context above. Do not invent facts beyond what is provided. Write prose, "
-    "not a list. Do not mention the frames, the camera, the video, or that you "
-    "are using a knowledge base or AI."
+    "Key historical and cultural facts (use these - do not invent others):\n"
+    "{description}\n\n"
+    "Notable visual cues to look for:\n{visual_cues}\n\n"
+    "Write ONE warm, observant tour-guide paragraph (150 to 300 words, English) that:\n"
+    "  - names the landmark explicitly,\n"
+    "  - weaves in at least 3 specific facts from the key facts above "
+    "(dates, builders, materials, cultural or religious significance, etc.),\n"
+    "  - describes what is actually visible across these frames,\n"
+    "  - uses warm, observant prose - not a list, not an encyclopedia entry.\n"
+    "Do not invent any fact not present above. Do not mention the frames, the camera, "
+    "the video, or that you are using a knowledge base or AI."
 )
 
 

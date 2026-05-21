@@ -24,9 +24,48 @@ data/*.npz
 tests/fixtures/*
 !tests/fixtures/.gitkeep
 
+# Raw dataset exports (regeneratable, large)
+data/dataset_*.json
+
+# Eval artifacts — ignore everything under data/eval/ except reproducible inputs
+data/eval/*
+!data/eval/landmark_map.json
+!data/eval/test_set.json
+
+# Media files (images & videos in data/ and tests/)
+data/kb_images/
+data/**/*.jpg
+data/**/*.jpeg
+data/**/*.png
+data/**/*.webp
+data/**/*.heic
+data/**/*.gif
+data/**/*.bmp
+data/**/*.mp4
+data/**/*.mov
+data/**/*.avi
+data/**/*.mkv
+data/**/*.webm
+tests/videos/
+tests/**/*.jpg
+tests/**/*.jpeg
+tests/**/*.png
+tests/**/*.webp
+tests/**/*.heic
+tests/**/*.gif
+tests/**/*.bmp
+tests/**/*.mp4
+tests/**/*.mov
+tests/**/*.avi
+tests/**/*.mkv
+tests/**/*.webm
+
 # OS
 .DS_Store
 
 # IDE
 .vscode/
 .idea/
+
+# Claude Code local settings
+.claude/settings.local.json
