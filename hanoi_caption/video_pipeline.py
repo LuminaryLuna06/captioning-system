@@ -1,7 +1,4 @@
-"""Video captioning pipeline: DINOv3 retrieval per frame + DAM multi-frame caption per segment.
-
-See `docs/superpowers/specs/2026-05-14-video-caption-pipeline-design.md`.
-"""
+"""Video captioning pipeline: DINOv3 retrieval per frame + DAM multi-frame caption per segment."""
 from __future__ import annotations
 
 import json
@@ -19,7 +16,7 @@ from PIL import Image
 
 from hanoi_caption.kb_loader import index_by_kb_id
 from hanoi_caption.model_registry import registry
-from hanoi_caption.region_describer import MODEL_NAME as DAM_NAME
+from hanoi_caption.dam_model import MODEL_NAME as DAM_NAME
 from hanoi_caption.schemas import KBNode, VideoSegment
 
 log = logging.getLogger(__name__)

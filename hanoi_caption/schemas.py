@@ -20,35 +20,6 @@ class KBNode(BaseModel):
     tags: list[str] = Field(default_factory=list)
 
 
-class MatchCandidate(BaseModel):
-    node_id: str
-    score: float
-
-
-class MatchResult(BaseModel):
-    node_id: str | None
-    confidence: float
-    top_k: list[MatchCandidate]
-
-
-class Region(BaseModel):
-    box: tuple[float, float, float, float]  # xyxy in pixel coords
-    mask_png_b64: str                        # PNG-encoded binary mask
-    query: str                               # detection query that produced this region
-    score: float                             # detector score
-
-
-class RegionDescription(BaseModel):
-    query: str
-    text: str
-
-
-class CaptionResult(BaseModel):
-    caption: str | None
-    refusal: str | None
-    debug: dict[str, Any] = Field(default_factory=dict)
-
-
 class VideoSegment(BaseModel):
     start_s: float
     end_s: float

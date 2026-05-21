@@ -1,13 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from hanoi_caption.schemas import (
-    KBNode,
-    MatchResult,
-    Region,
-    RegionDescription,
-    CaptionResult,
-)
+from hanoi_caption.schemas import KBNode, VideoSegment
 
 
 def test_kbnode_minimal_object():
@@ -36,21 +30,7 @@ def test_kbnode_rejects_unknown_type():
         )
 
 
-def test_match_result_none_path():
-    r = MatchResult(node_id=None, confidence=0.0, top_k=[])
-    assert r.node_id is None
-
-
-def test_caption_result_either_caption_or_refusal():
-    ok = CaptionResult(caption="A long paragraph...", refusal=None, debug={})
-    assert ok.caption is not None
-    refused = CaptionResult(caption=None, refusal="Not recognized.", debug={})
-    assert refused.refusal is not None
-
-
 def test_video_segment_round_trip():
-    from hanoi_caption.schemas import VideoSegment
-
     seg = VideoSegment(
         start_s=0.0,
         end_s=4.0,
@@ -67,8 +47,6 @@ def test_video_segment_round_trip():
 
 
 def test_video_segment_accepts_debug_payload():
-    from hanoi_caption.schemas import VideoSegment
-
     seg = VideoSegment(
         start_s=0.0, end_s=2.0,
         kb_id="x", node_id="y", name_en="X",

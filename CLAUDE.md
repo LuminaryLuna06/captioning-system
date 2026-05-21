@@ -1,20 +1,12 @@
 # CLAUDE.md
 
-Hanoi landmark captioning system. KB-grounded captions (150–300 words, tour-guide English) for images and videos.
+Hanoi landmark captioning — video only. KB-grounded captions (150–300 words, tour-guide English) per segment of walking-tour clips.
 
 ## Environment
 
 - Python: `D:\Jupiter\luna_env\Scripts\python.exe` (luna_env, PyTorch + CUDA 12.8 for Blackwell sm_120). Base Anaconda Python has a DLL conflict — do not use it.
 
-## Pipelines
-
-### Image — `hanoi_caption/pipeline_retriever.py`
-
-1. **Describe** — VLM (Qwen) produces a holistic description of the image.
-2. **Match** — BGE-M3 cosine retrieval over KB `visual_cues` → top-K candidates → VLM rerank picks one landmark (or refuses with `"Not a recognized Hanoi landmark."`).
-3. **Caption** — DAM-3B writes the final paragraph with the matched KB node's facts (`name_en`, `description_en`, `visual_cues_en`) embedded in its prompt.
-
-### Video — `hanoi_caption/video_pipeline.py`
+## Pipeline — `hanoi_caption/video_pipeline.py`
 
 1. **Sample** — decode frames at `sample_fps` (default 1.0) via OpenCV.
 2. **Retrieve per frame** — DINOv3 features → FAISS cosine top-1 against a pre-built reference-image index → `(kb_id, score)`. Index + `id_map.json` live under `data/cache/`.
@@ -23,16 +15,23 @@ Hanoi landmark captioning system. KB-grounded captions (150–300 words, tour-gu
 
 Public entrypoint: `caption_video(video_path, kb_nodes, dino_index_path, id_map_path, ...)` → `list[VideoSegment]`.
 
+## Modules
+
+- `hanoi_caption/video_pipeline.py` — entrypoint + smoothing/grouping/DAM-prompt helpers.
+- `hanoi_caption/dam_model.py` — DAM-3B loader, registered with `model_registry`.
+- `hanoi_caption/kb_loader.py` — `load_kb(path)`, `index_by_kb_id(nodes)`.
+- `hanoi_caption/model_registry.py` — lazy model loading with LRU eviction under a VRAM budget.
+- `hanoi_caption/schemas.py` — `KBNode`, `VideoSegment`.
+
 ## Knowledge base
 
 - `data/kb.json` — bilingual KB nodes (`kb_id`, `name_en`, `description_en`, `visual_cues_en`, ...).
-- `data/kb_images/<kb_id>/*.jpg` — reference images per landmark (gitignored). Used to build the DINOv3 index.
-- `data/cache/kb_index_*.npz`, `data/cache/id_map.json` — built artifacts (gitignored).
+- `data/kb_images/<kb_id>/*.jpg` — reference images per landmark (gitignored). Used to build the DINOv3 index via `scripts/data_collection/`.
+- `data/cache/dino_faiss.index`, `data/cache/id_map.json` — built artifacts (gitignored).
 
-## Notebooks
+## Notebook
 
-- `notebooks/01_phase1_kb_only.ipynb` — KB-only smoke test.
-- `notebooks/02_phase2_full_pipeline.ipynb` — full image pipeline + timing comparison.
+- `notebooks/02_phase2_full_pipeline.ipynb` — interactive demo: setup → `caption_video` on a clip → timeline + caption render.
 
 ## Evaluation — `scripts/eval/`
 
@@ -51,10 +50,10 @@ Per-experiment snapshots go under `data/eval/runs/<date>_<label>/`.
 ## Layout
 
 ```
-hanoi_caption/        importable package (pipeline_retriever, video_pipeline, kb_*, schemas, model_registry, ...)
+hanoi_caption/        importable package (video_pipeline, dam_model, kb_loader, model_registry, schemas)
 scripts/eval/         evaluation scripts (see above)
 scripts/data_collection/   FeatureExtractor + KB image crawlers
-notebooks/            phase 1 and phase 2 notebooks
+notebooks/            video pipeline demo
 data/kb.json          KB export
 data/kb_images/       reference images per landmark (gitignored)
 data/cache/           embeddings + HF model cache (gitignored)
