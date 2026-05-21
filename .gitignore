@@ -20,7 +20,9 @@ venv/
 
 # Project artifacts
 data/cache/
+**/data/cache/
 data/*.npz
+**/*.npz
 tests/fixtures/*
 !tests/fixtures/.gitkeep
 
