@@ -10,7 +10,10 @@ from __future__ import annotations
 from typing import Protocol, Sequence, runtime_checkable
 
 import numpy as np
+import torch
+import torch.nn.functional as F
 from PIL import Image
+from transformers import AutoImageProcessor, AutoModel
 
 
 @runtime_checkable
@@ -21,11 +24,6 @@ class BackboneExtractor(Protocol):
     def extract(self, images: Sequence[Image.Image]) -> np.ndarray:
         """Return float32 array of shape (len(images), dim), L2-normalized along axis=1."""
         ...
-
-
-import torch
-import torch.nn.functional as F
-from transformers import AutoImageProcessor, AutoModel
 
 
 class _HFExtractor:
