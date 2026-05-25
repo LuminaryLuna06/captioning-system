@@ -71,3 +71,19 @@ def test_make_topk_fn_returns_k_results():
     assert results[0]["score"] == 1.0
     for r in results:
         assert {"path", "kb_id", "score"} <= set(r.keys())
+
+
+def test_make_topk_fn_handles_missing_path():
+    v_a = np.array([[1.0, 0.0, 0.0]])
+    v_b = np.array([[0.0, 1.0, 0.0]])
+    index = faiss.IndexFlatIP(3)
+    index.add(np.vstack([v_a, v_b]).astype("float32"))
+    # id_map is missing key 1 — simulate a corrupt or out-of-sync mapping
+    id_map = {0: "data/kb_images/kb_alpha/img1.jpg"}
+    ext = FakeExtractor(fixed_emb=np.array([0.0, 1.0, 0.0]))   # query closest to v_b at idx 1
+    topk = make_topk_fn(ext, index, id_map, k=2)
+    results = topk(Image.new("RGB", (4, 4)))
+    assert len(results) == 2
+    assert results[0]["kb_id"] is None       # idx 1 has no path → kb_id None
+    assert results[0]["path"] is None        # consistent sentinel
+    assert results[1]["kb_id"] == "kb_alpha" # idx 0 still works

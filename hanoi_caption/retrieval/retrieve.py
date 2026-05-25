@@ -3,14 +3,16 @@ notebook or as a drop-in `retrieve_fn` for `caption_video(retrieve_fn=...)`."""
 from __future__ import annotations
 
 import os
-from typing import Callable
+from typing import Any, Callable
+
+from PIL import Image
 
 
 def _kb_id_from_path(path: str) -> str:
     return os.path.basename(os.path.dirname(path))
 
 
-def make_retrieve_fn(extractor, index, id_map) -> Callable:
+def make_retrieve_fn(extractor, index, id_map) -> Callable[[Image.Image], tuple[str | None, float]]:
     """Return a callable: PIL.Image -> (kb_id | None, score: float).
 
     Mirrors the contract of `hanoi_caption.video_pipeline._default_retrieve_fn`.
@@ -28,7 +30,7 @@ def make_retrieve_fn(extractor, index, id_map) -> Callable:
     return _retrieve
 
 
-def make_topk_fn(extractor, index, id_map, k: int) -> Callable:
+def make_topk_fn(extractor, index, id_map, k: int) -> Callable[[Image.Image], list[dict[str, Any]]]:
     """Return a callable: PIL.Image -> list[{path, kb_id, score}] of length <= k."""
     def _topk(frame_pil):
         feat = extractor.extract([frame_pil]).astype("float32")
@@ -38,7 +40,7 @@ def make_topk_fn(extractor, index, id_map, k: int) -> Callable:
             i = int(idx)
             if i < 0:
                 continue
-            path = id_map.get(i, "")
+            path = id_map.get(i)
             out.append({
                 "path": path,
                 "kb_id": _kb_id_from_path(path) if path else None,
