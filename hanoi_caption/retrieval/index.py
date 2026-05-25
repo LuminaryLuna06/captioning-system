@@ -63,7 +63,7 @@ def build_or_load_index(
         embeddings = extractor.extract(batch_images).astype("float32")
         start_id = index.ntotal
         for j, p in enumerate(valid_paths):
-            id_map[start_id + j] = str(p)
+            id_map[start_id + j] = str(p.resolve())
         index.add(embeddings)
         log.info("indexed %d/%d images for %s", index.ntotal, len(image_paths), extractor.name)
 
