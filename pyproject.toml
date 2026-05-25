@@ -35,3 +35,6 @@ include = ["hanoi_caption*"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-v"
+markers = [
+    "slow: tests that load real models or otherwise need GPU/network; skipped by default in CI via -m 'not slow'",
+]
