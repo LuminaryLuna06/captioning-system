@@ -22,6 +22,12 @@ Public entrypoint: `caption_video(video_path, kb_nodes, dino_index_path, id_map_
 - `hanoi_caption/kb_loader.py` — `load_kb(path)`, `index_by_kb_id(nodes)`.
 - `hanoi_caption/model_registry.py` — lazy model loading with LRU eviction under a VRAM budget.
 - `hanoi_caption/schemas.py` — `KBNode`, `VideoSegment`.
+- `hanoi_caption/retrieval/` — experimental pluggable backbones for retrieval comparison
+  (`backbones.py`: DINOv3/ResNet-50/SigLIP-2/ViT extractors; `index.py`:
+  `build_or_load_index` with per-backbone FAISS cache under `data/cache/<name>/`;
+  `retrieve.py`: `make_retrieve_fn` / `make_topk_fn` closures). Production pipeline
+  is unchanged and still uses `scripts/data_collection/FeatureExtractor` + `ImageIndexer`.
+  Notebook: `notebooks/03_retriever_comparison.ipynb`.
 
 ## Knowledge base
 
@@ -51,6 +57,13 @@ python scripts/data_collection/indexer.py data/kb_images      # 2. build FAISS i
 ```
 
 After this, `caption_video` can use the updated `data/cache/dino_faiss.index` + `id_map.json` without code changes.
+
+**Per-backbone caches for the comparison notebook:**
+
+```bash
+python scripts/data_collection/build_all_backbones.py    # builds data/cache/<name>/
+python scripts/data_collection/extract_fixed_frames.py   # writes tests/fixtures/retriever_frames/<kb>.jpg
+```
 
 ## Evaluation — `scripts/eval/`
 
