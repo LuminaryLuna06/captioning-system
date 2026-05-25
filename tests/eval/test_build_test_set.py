@@ -49,19 +49,36 @@ MINI_MAP = {
     "Hoan Kiem Lake": {"kb_id": "hoan_kiem_lake", "in_kb": True},
 }
 
+MINI_KB = [
+    {
+        "id": "kb_node_001", "kb_id": "pen_tower", "type": "object",
+        "name": "Pen Tower", "name_vi": "Thap But",
+        "description": "Five-story stone tower built in 1865.", "description_vi": "",
+        "visual_cues": "A tall stone tower.", "visual_cues_vi": "",
+    },
+    {
+        "id": "kb_node_002", "kb_id": "hoan_kiem_lake", "type": "object",
+        "name": "Hoan Kiem Lake", "name_vi": "Ho Hoan Kiem",
+        "description": "Hoan Kiem Lake in the heart of Hanoi.", "description_vi": "",
+        "visual_cues": "A body of water.", "visual_cues_vi": "",
+    },
+]
 
-def _write_files(tmp_path, dataset=MINI_DATASET, lmap=MINI_MAP):
+
+def _write_files(tmp_path, dataset=MINI_DATASET, lmap=MINI_MAP, kb=MINI_KB):
     ds_path = tmp_path / "dataset.json"
     map_path = tmp_path / "landmark_map.json"
+    kb_path = tmp_path / "kb.json"
     ds_path.write_text(json.dumps(dataset), encoding="utf-8")
     map_path.write_text(json.dumps(lmap), encoding="utf-8")
-    return ds_path, map_path
+    kb_path.write_text(json.dumps(kb), encoding="utf-8")
+    return ds_path, map_path, kb_path
 
 
 def test_in_kb_segments_extracted(tmp_path):
     from scripts.eval.build_test_set import build_test_set
-    ds, lmap = _write_files(tmp_path)
-    result = build_test_set(ds, lmap, total_videos=10, seed=42)
+    ds, lmap, kb = _write_files(tmp_path)
+    result = build_test_set(ds, lmap, total_videos=10, seed=42, kb_path=kb)
     assert len(result["in_kb"]) == 2
     kb_ids = {v["gt_segments"][0]["kb_id"] for v in result["in_kb"]}
     assert kb_ids == {"pen_tower", "hoan_kiem_lake"}
@@ -69,16 +86,16 @@ def test_in_kb_segments_extracted(tmp_path):
 
 def test_out_of_kb_segments_extracted(tmp_path):
     from scripts.eval.build_test_set import build_test_set
-    ds, lmap = _write_files(tmp_path)
-    result = build_test_set(ds, lmap, total_videos=10, seed=42)
+    ds, lmap, kb = _write_files(tmp_path)
+    result = build_test_set(ds, lmap, total_videos=10, seed=42, kb_path=kb)
     assert len(result["out_of_kb"]) == 1
     assert result["out_of_kb"][0]["video_id"] == "vid2"
 
 
 def test_reference_caption_populated(tmp_path):
     from scripts.eval.build_test_set import build_test_set
-    ds, lmap = _write_files(tmp_path)
-    result = build_test_set(ds, lmap, total_videos=10, seed=42)
+    ds, lmap, kb = _write_files(tmp_path)
+    result = build_test_set(ds, lmap, total_videos=10, seed=42, kb_path=kb)
     seg = result["in_kb"][0]["gt_segments"][0]
     assert seg["reference_caption"]
     assert seg["kb_description"]
@@ -86,8 +103,8 @@ def test_reference_caption_populated(tmp_path):
 
 def test_sample_respects_total(tmp_path):
     from scripts.eval.build_test_set import build_test_set
-    ds, lmap = _write_files(tmp_path)
-    result = build_test_set(ds, lmap, total_videos=1, seed=42)
+    ds, lmap, kb = _write_files(tmp_path)
+    result = build_test_set(ds, lmap, total_videos=1, seed=42, kb_path=kb)
     assert len(result["in_kb"]) <= 1
 
 
@@ -103,8 +120,8 @@ def test_segments_without_combined_caption_excluded(tmp_path):
             }]
         }]
     }
-    ds, lmap = _write_files(tmp_path, dataset=dataset)
-    result = build_test_set(ds, lmap, total_videos=10, seed=42)
+    ds, lmap, kb = _write_files(tmp_path, dataset=dataset)
+    result = build_test_set(ds, lmap, total_videos=10, seed=42, kb_path=kb)
     assert len(result["in_kb"]) == 0
 
 
