@@ -8,7 +8,7 @@ from typing import Tuple
 
 import faiss
 import numpy as np
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 
 log = logging.getLogger(__name__)
 
@@ -53,9 +53,10 @@ def build_or_load_index(
         valid_paths = []
         for p in batch_paths:
             try:
-                batch_images.append(Image.open(p).convert("RGB"))
+                with Image.open(p) as im:
+                    batch_images.append(im.convert("RGB"))
                 valid_paths.append(p)
-            except Exception as e:
+            except (UnidentifiedImageError, OSError) as e:
                 log.warning("skipping unreadable image %s: %s", p, e)
         if not batch_images:
             continue
