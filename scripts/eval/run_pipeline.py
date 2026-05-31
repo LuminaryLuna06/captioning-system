@@ -9,6 +9,7 @@ Usage:
         --id-map     data/cache/id_map.json \
         --sample-fps 1.0 \
         --resume                   # skip videos already in output file
+        --skip-caption             # retrieval/segmentation only (no DAM); for Module 2 eval
 
 Output JSON schema (list):
     [
@@ -34,6 +35,26 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from hanoi_caption.kb_loader import load_kb
 from hanoi_caption.video_pipeline import caption_video
+from hanoi_caption.retrieval.backbones import (
+    Dinov3Extractor, Dinov3LargeExtractor,
+    Resnet50Extractor,
+    Siglip2Extractor, Siglip2LargeExtractor,
+    VitExtractor,
+    Aimv2LargeExtractor,
+)
+from hanoi_caption.retrieval.index import build_or_load_index
+from hanoi_caption.retrieval.retrieve import make_retrieve_fn
+
+
+_BACKBONE_CLASSES = {
+    "dinov3_vits16": Dinov3Extractor,
+    "dinov3_vitl16": Dinov3LargeExtractor,
+    "resnet50":      Resnet50Extractor,
+    "siglip2_base":  Siglip2Extractor,
+    "siglip2_large": Siglip2LargeExtractor,
+    "vit_base":      VitExtractor,
+    "aimv2_large":   Aimv2LargeExtractor,
+}
 
 
 def _find_video(filename: str, video_dir: Path) -> Path | None:
@@ -59,7 +80,32 @@ def main():
     parser.add_argument("--sample-fps", type=float, default=1.0)
     parser.add_argument("--resume",     action="store_true",
                         help="Load existing output and skip already-processed videos")
+    parser.add_argument("--skip-caption", action="store_true",
+                        help="Skip DAM caption generation; run retrieval + smoothing/grouping only. "
+                             "Captions in output are empty strings. Useful for Module 2 (retrieval) eval.")
+    parser.add_argument("--backbone", choices=list(_BACKBONE_CLASSES), default=None,
+                        help="Use this retrieval backbone's per-backbone FAISS cache under "
+                             "data/cache/<name>/ (via hanoi_caption.retrieval). Overrides "
+                             "--dino-index/--id-map. If --output is left at default, it is "
+                             "auto-suffixed to pipeline_results_<backbone>.json.")
+    parser.add_argument("--kb-images-dir", default="data/kb_images",
+                        help="Source KB images; used by --backbone if cache must be rebuilt.")
     args = parser.parse_args()
+
+    skip_caption_fn = (lambda frames, node: "") if args.skip_caption else None
+
+    retrieve_fn = None
+    if args.backbone:
+        extractor = _BACKBONE_CLASSES[args.backbone]()
+        index, id_map = build_or_load_index(
+            extractor, kb_images_dir=args.kb_images_dir, cache_dir="data/cache",
+        )
+        retrieve_fn = make_retrieve_fn(extractor, index, id_map)
+        args.dino_index = f"data/cache/{args.backbone}/faiss.index"
+        args.id_map     = f"data/cache/{args.backbone}/id_map.json"
+        if args.output == "data/eval/pipeline_results.json":
+            args.output = f"data/eval/pipeline_results_{args.backbone}.json"
+        print(f"Backbone: {args.backbone} (dim={extractor.dim})  output: {args.output}")
 
     test_set  = json.loads(Path(args.test_set).read_text(encoding="utf-8"))
     kb_nodes  = load_kb(args.kb, only_objects=True)
@@ -98,6 +144,8 @@ def main():
                 dino_index_path=args.dino_index,
                 id_map_path=args.id_map,
                 sample_fps=args.sample_fps,
+                retrieve_fn=retrieve_fn,
+                dam_caption_fn=skip_caption_fn,
             )
             elapsed = time.perf_counter() - t0
             pred = [s.model_dump(exclude={"debug"}) for s in segs]
