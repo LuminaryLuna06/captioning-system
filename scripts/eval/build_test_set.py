@@ -138,13 +138,18 @@ def build_test_set(
                 has_out_of_kb = True
 
         if good_segs:
-            for seg in good_segs:
-                in_kb_by_kb_id[seg["kb_id"]].append({
-                    "video_id": video_id,
-                    "filename": filename,
-                    "duration": duration,
-                    "gt_segments": [seg],
-                })
+            # One entry per video: all gt_segments for this video bundled together.
+            # Bucket by the kb_id of the longest segment so stratified sampling keeps
+            # landmark coverage without ever placing the same video in multiple buckets.
+            primary_kb = max(
+                good_segs, key=lambda s: s["end_time"] - s["start_time"]
+            )["kb_id"]
+            in_kb_by_kb_id[primary_kb].append({
+                "video_id": video_id,
+                "filename": filename,
+                "duration": duration,
+                "gt_segments": good_segs,
+            })
         if has_out_of_kb and not good_segs:
             out_of_kb.append({"video_id": video_id, "filename": filename, "duration": duration})
 
