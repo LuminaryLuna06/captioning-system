@@ -80,6 +80,14 @@ class Dinov3Extractor(_HFExtractor):
         return outputs.last_hidden_state[:, 0]
 
 
+class Dinov3LargeExtractor(_HFExtractor):
+    name = "dinov3_vitl16"
+    _MODEL_ID = "facebook/dinov3-vitl16-pretrain-lvd1689m"
+
+    def _embed(self, outputs):
+        return outputs.last_hidden_state[:, 0]
+
+
 class Resnet50Extractor(_HFExtractor):
     name = "resnet50"
     _MODEL_ID = "microsoft/resnet-50"
@@ -107,9 +115,23 @@ class Siglip2Extractor(_HFExtractor):
         return outputs.pooler_output
 
 
+class Siglip2LargeExtractor(Siglip2Extractor):
+    name = "siglip2_large"
+    _MODEL_ID = "google/siglip2-large-patch16-256"
+
+
 class VitExtractor(_HFExtractor):
     name = "vit_base"
     _MODEL_ID = "google/vit-base-patch16-224"
 
     def _embed(self, outputs):
         return outputs.last_hidden_state[:, 0]
+
+
+class Aimv2LargeExtractor(_HFExtractor):
+    name = "aimv2_large"
+    _MODEL_ID = "apple/aimv2-large-patch14-224"
+
+    def _embed(self, outputs):
+        # AIMv2 is autoregressive with no CLS token; mean-pool patch tokens.
+        return outputs.last_hidden_state.mean(dim=1)
