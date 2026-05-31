@@ -98,24 +98,24 @@ def _merge_adjacent(runs: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def _absorb_short_runs(runs: list[dict[str, Any]], min_seconds: float) -> list[dict[str, Any]]:
-    """Absorb short runs into the longer neighbor.
+    """Absorb short runs into the longer immediate neighbor.
 
     Rules:
-    - Unknown (kb_id is None) runs are NEVER absorbed into a known neighbor; they are
-      simply dropped at the final filter step. This function relabels a short known
-      run to its longer neighbor's kb_id (after which `_merge_adjacent` collapses
-      them into one run), OR drops the short run by relabeling to None when no known
-      neighbor exists.
-    - Among two known neighbors, absorb into the longer (in duration). Ties go to the
-      preceding neighbor.
+    - Unknown (kb_id is None) runs act as walls: only immediately adjacent known runs
+      are candidate absorption targets. A short known run with no known immediate
+      neighbor (either edge-of-video or surrounded by unknowns) is dropped by
+      relabeling to None.
+    - Among two known immediate neighbors, absorb into the longer (in duration).
+      Ties go to the preceding neighbor.
+
+    Looking past unknowns for a known target would create an infinite loop here
+    because `_merge_adjacent` only merges adjacent same-kb_id runs — relabeling a
+    short run to match a non-adjacent target produces no merge, leaving the same
+    short run to be re-relabeled every iteration.
     """
     if not runs:
         return runs
 
-    # Repeatedly find a short known run and try to absorb it. Stop when no more changes.
-    # After each relabeling, immediately merge adjacent same-kb_id runs so that the merged
-    # run has an updated (longer) duration — preventing an infinite loop where a short run
-    # is relabeled to match a neighbor but stays short because the merge hasn't happened yet.
     changed = True
     while changed:
         changed = False
@@ -126,9 +126,8 @@ def _absorb_short_runs(runs: list[dict[str, Any]], min_seconds: float) -> list[d
             duration = run["end_s"] - run["start_s"]
             if duration >= min_seconds:
                 continue
-            # candidate neighbors: nearest *known* runs on either side
-            left = next((runs[k] for k in range(i - 1, -1, -1) if runs[k]["kb_id"] is not None), None)
-            right = next((runs[k] for k in range(i + 1, len(runs)) if runs[k]["kb_id"] is not None), None)
+            left = runs[i - 1] if i > 0 and runs[i - 1]["kb_id"] is not None else None
+            right = runs[i + 1] if i + 1 < len(runs) and runs[i + 1]["kb_id"] is not None else None
             target = None
             if left and right:
                 ld = left["end_s"] - left["start_s"]
@@ -139,7 +138,7 @@ def _absorb_short_runs(runs: list[dict[str, Any]], min_seconds: float) -> list[d
             elif right:
                 target = right
             if target is None:
-                # No known neighbor at all -> drop by relabeling to unknown.
+                # No known immediate neighbor -> drop by relabeling to unknown.
                 runs[i] = {**run, "kb_id": None}
                 changed = True
                 break
@@ -148,7 +147,6 @@ def _absorb_short_runs(runs: list[dict[str, Any]], min_seconds: float) -> list[d
             changed = True
             break
 
-    # Final merge pass to combine any remaining adjacent same-kb_id runs.
     return _merge_adjacent(runs)
 
 

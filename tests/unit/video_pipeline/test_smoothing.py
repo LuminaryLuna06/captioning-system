@@ -84,3 +84,15 @@ def test_two_short_adjacent_runs_both_dropped():
     # with no known neighbors -> dropped to unknown -> filtered out.
     segs = smooth_and_group(_records("AB"), smooth_window=1, min_segment_seconds=5.0, stride_s=1.0)
     assert segs == []
+
+
+def test_short_run_between_unknowns_with_known_outside_does_not_loop():
+    # Regression: AAAA?B?AAAA used to infinite-loop in _absorb_short_runs because
+    # left/right neighbor lookup walked PAST unknown runs to find A's, relabeled
+    # B->A, but _merge_adjacent never merged across the unknowns -> next iter
+    # found the same short A and re-relabeled forever. Expected behavior now:
+    # unknowns are walls, short B has no immediate known neighbor -> dropped.
+    segs = smooth_and_group(_records("AAAA?B?AAAA"), smooth_window=1,
+                            min_segment_seconds=2.0, stride_s=1.0)
+    assert [s["kb_id"] for s in segs] == ["A", "A"]
+    assert segs[0]["end_s"] <= segs[1]["start_s"]
