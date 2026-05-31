@@ -321,6 +321,47 @@ def _default_dam_caption_fn(model, frames, node):
     )
 
 
+def extract_frame_records(
+    video_path: "Path | str",
+    kb_nodes: dict,
+    dino_index_path: "Path | str",
+    id_map_path: "Path | str",
+    sample_fps: float = 1.0,
+    retrieve_fn=None,
+) -> "tuple[list[tuple[int, float, Image.Image]], list[FrameRecord], float]":
+    """Sample frames + run per-frame retrieval, stopping before smoothing.
+
+    Returns (sampled, records, stride_s) so callers can experiment with
+    smooth_and_group params without re-running retrieval. `sampled` is the
+    list returned by sample_frames; `records` has one FrameRecord per element
+    of `sampled`; `stride_s = 1.0 / sample_fps`.
+    """
+    if sample_fps <= 0:
+        raise ValueError(f"sample_fps must be positive, got {sample_fps}")
+    if not Path(video_path).exists():
+        raise FileNotFoundError(video_path)
+    if not Path(dino_index_path).exists():
+        raise FileNotFoundError(dino_index_path)
+    if not Path(id_map_path).exists():
+        raise FileNotFoundError(id_map_path)
+
+    sampled = sample_frames(video_path, sample_fps=sample_fps)
+    stride_s = 1.0 / sample_fps
+    if not sampled:
+        return [], [], stride_s
+
+    if retrieve_fn is None:
+        retrieve_fn = _default_retrieve_fn(str(dino_index_path), str(id_map_path))
+    nodes_by_kb_id = index_by_kb_id(kb_nodes)
+    records: list[FrameRecord] = []
+    for _, t, img in sampled:
+        kb_id, score = retrieve_fn(img)
+        if kb_id is not None and kb_id not in nodes_by_kb_id:
+            kb_id = None
+        records.append(FrameRecord(timestamp_s=t, kb_id=kb_id, score=score))
+    return sampled, records, stride_s
+
+
 def caption_video(
     video_path: "Path | str",
     kb_nodes: dict,
@@ -334,36 +375,21 @@ def caption_video(
     dam_caption_fn=None,
 ) -> "list[VideoSegment]":
     """See docs/superpowers/specs/2026-05-14-video-caption-pipeline-design.md."""
-    # Input validation (raise early, before any model is touched)
-    if sample_fps <= 0:
-        raise ValueError(f"sample_fps must be positive, got {sample_fps}")
     if dam_frame_budget[0] > dam_frame_budget[1] or dam_frame_budget[0] < 1:
         raise ValueError(f"invalid dam_frame_budget: {dam_frame_budget}")
-    if not Path(video_path).exists():
-        raise FileNotFoundError(video_path)
-    if not Path(dino_index_path).exists():
-        raise FileNotFoundError(dino_index_path)
-    if not Path(id_map_path).exists():
-        raise FileNotFoundError(id_map_path)
 
-    # 1. Sample frames
-    sampled = sample_frames(video_path, sample_fps=sample_fps)
+    sampled, records, stride_s = extract_frame_records(
+        video_path=video_path,
+        kb_nodes=kb_nodes,
+        dino_index_path=dino_index_path,
+        id_map_path=id_map_path,
+        sample_fps=sample_fps,
+        retrieve_fn=retrieve_fn,
+    )
     if not sampled:
         return []
-    stride_s = 1.0 / sample_fps
-
-    # 2. Per-frame retrieval
-    if retrieve_fn is None:
-        retrieve_fn = _default_retrieve_fn(str(dino_index_path), str(id_map_path))
     nodes_by_kb_id = index_by_kb_id(kb_nodes)
-    records: list[FrameRecord] = []
-    for _, t, img in sampled:
-        kb_id, score = retrieve_fn(img)
-        if kb_id is not None and kb_id not in nodes_by_kb_id:
-            kb_id = None
-        records.append(FrameRecord(timestamp_s=t, kb_id=kb_id, score=score))
 
-    # 3+4. Smooth, group, drop short/unknown
     segs = smooth_and_group(
         records,
         smooth_window=smooth_window,
